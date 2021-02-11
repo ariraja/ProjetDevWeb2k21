@@ -71,8 +71,34 @@ body{
     text-align: center;
 }
 
+
 /* SECTION */
 .main-section{
     color:white;
     float: right;
 }
+/* Menu latéral gauche */
+.menu2{
+    list-style:none;
+    float: left; 
+    width:150px;
+    margin-right:20px;
+    background-color:#a5978a;
+    height:500px;
+}
+.menu2 li a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    border : 2px solid black;
+}
+.menu2 ul li a:hover{
+    color:whitesmoke;
+    border : 2px solid whitesmoke;
+}
+.menu2 ul{
+    list-style: none;
+}
+.menu2 ul li{
+    padding-bottom: 20px;
