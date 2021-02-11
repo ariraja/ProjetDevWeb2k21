@@ -1,3 +1,65 @@
-.menu ul li{
+.main-head{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #522600;
+}
+.menuh{
+    display: flex;
+    align-items: center;  
+}
+#logo{
+    width: 220px;
+
+}
+.menuh ul{
+    display: flex;
+    justify-content: space-around;
+    flex :1 1 40rem; 
+}
+.menuh ul li{
     display: inline;
+    text-align: center;
+}
+.menuh ul li a{
+    text-decoration: none;
+    display: inline-block;
+    color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    border : 2px solid white;
+    width: 110px;
+}
+.menuh ul li a:hover{
+    text-decoration: none;
+    display: inline-block;
+    color: #D9670F;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    border : 2px solid #D9670F;
+    width: 110px;
+}
+
+#login{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    border : 2px solid white;
+    border-radius :100px;
+    height: auto;
+    width: 110px;
+    text-align: center;
+}
+#login:hover{
+    text-decoration: none;
+    color: red;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    border : 2px solid red;
+    border-radius :100px;
+    height: auto;
+    width: 110px;
+    text-align: center;
 }
