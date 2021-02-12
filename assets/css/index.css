@@ -1,4 +1,7 @@
 /* test body */
+body, html{
+    height:100%;
+}
 body{
     background-image: url(../img/test-ff2.jpg);
     background-repeat: no-repeat;
@@ -12,6 +15,7 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     background-color: #522600;
+    width: 100%;
 }
 .menuh{
     display: flex;
@@ -76,15 +80,15 @@ body{
 .main-section{
     color:white;
     float: right;
+    top: 50%;
+    width: 80%;
 }
 /* Menu latéral gauche */
 .menu2{
     list-style:none;
     float: left; 
-    width:150px;
-    margin-right:20px;
+    width:20%;
     background-color:#a5978a;
-    height:500px;
 }
 .menu2 li a{
     text-decoration: none;
@@ -105,7 +109,15 @@ body{
 }
     
 /* FOOTER */
-.footer {
-    position:relative;
-    }
-    
+
+
+footer{
+    position:absolute;
+    bottom:0px;
+    left: 0px;
+    width:100%;
+    height:50px;
+    padding-top:50px;
+    background-color: yellow;
+}
+
