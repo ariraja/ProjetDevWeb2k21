@@ -84,6 +84,86 @@ header{
     color:red;
 }
 
+/* MENU LATERAL */
+.menu{
+	width:40px;
+	height:40px;
+	display:block;
+	position:relative;
+    float:left;
+    width:200px;
+	}
+
+.list,.intro{
+	height:100%;
+	top:0;
+	display:flex;
+	position:fixed;
+	align-items:center;
+	flex-flow:column wrap;
+	justify-content:center;
+	z-index:-1;
+	transition:all .75s ease
+	}
+
+.list{
+	background:#333033;
+	width:200px;
+	left:-120px;
+	opacity:0
+	}
+
+.list span{
+	background:gray;
+	width:200px;
+    height:70px;
+	/*margin:5px 0;*/
+	padding-top:40px;
+	text-align:center;
+	border-radius:4px;
+	}
+.list span:hover{
+    background-color:yellow;
+}
+
+.intro{
+	width:100%;
+	padding:0 8px;
+	left:0;
+	text-align:center
+	}
+
+.btn{
+	background:#000;
+	width:40px;
+	height:40px;
+	top:10px;
+	left:10px;
+	display:block;
+	position:absolute;
+	border-radius:50%
+	}
+
+.btn:before,
+.btn:after{
+	background:#fff;
+	width:20px;
+	height:2px;
+	left:10px;
+	display:block;
+	position:absolute;
+	content:"";
+	transition:all .75s ease
+	}
+	
+.btn:before{top:16px}
+.btn:after{bottom:16px}
+
+.menu:focus-within .list{left:0;opacity:1}
+.menu:focus-within .intro{width:calc(100% - 120px);left:120px}
+.menu:focus-within .btn:before{transform:rotate(45deg) translate(2px,2px)}
+.menu:focus-within .btn:after{transform:rotate(-45deg) translate(2px,-2px)}
+
 
 /*SECTION*/
 .main-section{
