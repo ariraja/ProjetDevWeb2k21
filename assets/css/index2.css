@@ -172,7 +172,6 @@ header{
     top: 50%;
     width: 70%;
 }
-
 .search{
     border-radius: 30px;
     margin:10px;
@@ -219,15 +218,19 @@ header{
     background-image: url(../img/new_pizza.png);
 }
 
+.burger ul li{
+    display: inline;
+}
+
 /* FOOTER */
 
 footer{
     position:absolute;
     bottom:0;
     width: 100%;
-    background-color:black;
+    background-color:#737373;
     height:200px;
-    box-shadow:2px 2px 12px rgba(0,0,0,0.20);
+    border-bottom:2px solid rgba(255,255,255,0.10);
 }
 
 .bloc{
@@ -240,12 +243,6 @@ footer{
 
 .bloc span{
     text-align:justify;
-}
-
-.bloc span ul li a{
-    color: white;
-    font-family: calibri;
-    font-weight: bold;
 }
 
 
