@@ -218,6 +218,10 @@ header{
     background-image: url(../img/new_pizza.png);
 }
 
+.burger ul li{
+    display: inline;
+}
+
 /* FOOTER */
 
 footer{
