@@ -1,0 +1,13 @@
+.form-section{
+    background-color: dimgrey;
+    color:white;
+    float: right;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+.submit{
+    border-radius: 25px;
+    box-shadow: 10px 5px 5px black;
+}
