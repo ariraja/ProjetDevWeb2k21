@@ -217,6 +217,7 @@ header{
 footer{
     position:absolute;
     bottom:0;
+    left:0;
     width: 100%;
     background-color:black;
     height:200px;
@@ -239,6 +240,11 @@ footer{
     color: white;
     font-family: calibri;
     font-weight: bold;
+    margin-left:-35px;
+}
+
+.bloc span ul li a:hover{
+    color:red;
 }
 
 
