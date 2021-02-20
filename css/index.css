@@ -1,7 +1,7 @@
 body{
     margin: 0px;
     padding-bottom: 200px;
-    background-image: url(../img/index2.png);
+    background-image: url(../img/bg.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -73,13 +73,16 @@ header{
     z-index: 1;
     float: left;
 }
-#menu_contextuel a{
-    text-decoration: none;
-    color: #232323;  
-}
 
-#menu_contextuel a:hover{
-    color: red;
+#circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background: white;
+    position: absolute;
+    top:112px;
+    left: -8px;
+    z-index: 1;
 }
 
 #menu_contextuel input{
@@ -100,7 +103,6 @@ header{
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-    background: white;
     background-color: black;
     border-radius: 3px;
     z-index: 1;
@@ -127,6 +129,11 @@ header{
 #menu_contextuel input:checked ~ span:nth-last-child(2){
     transform: rotate(-45deg) translate(0, -1px);/*forme la croix qd on clique*/
 }
+#menu_contextuel a{
+    text-decoration: none;
+    color: #232323;  
+}
+
 #menu_contextuel input:checked ~ ul{
     transform: none;/*affiche ul*/
 }
@@ -138,14 +145,22 @@ header{
     padding-top: 125px;
     margin-top: 65px;
     margin-right: 50px;
-    background: #ededed;
+    background: #353036;
     list-style-type: none;
     transform: translate(-100%, 0);/*rend menu invisible au début*/
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0); /*animation déoule menu*/
 }
 #menu_contextuel-container li{
     padding: 10px 0;
-    font-size: 22px;
+    color: #ffffff;
+    font-family: calibri;
+    font-weight: bold;
+}
+#menu_contextuel-container li:hover{
+    padding: 10px 0;
+    color: #ea272d;
+    font-family: calibri;
+    font-weight: bold;
 }
 
 /*SECTION*/
@@ -154,6 +169,14 @@ header{
     float: right;
     top: 50%;
     width: 70%;
+}
+
+.whats-new{
+	display:flex;
+	justify-content:center;
+	margin:7% 0px 20px 0px;
+    font-family: calibri;
+    font-weight: bold;
 }
 
 .search{
