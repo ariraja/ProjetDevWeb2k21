@@ -121,6 +121,9 @@ header{
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);/*forme la croix qd on clique*/
     background: #232323;
+    /*on va centrer la croix pour l'animation*/
+    left: 7px;
+    top: 128px;
 }
 #menu_contextuel input:checked ~ span:nth-last-child(3){
     opacity: 0;
@@ -155,6 +158,8 @@ header{
     color: #ffffff;
     font-family: calibri;
     font-weight: bold;
+    border: 1px solid #fff ;
+    text-align: center;
 }
 #menu_contextuel-container li:hover{
     padding: 10px 0;
