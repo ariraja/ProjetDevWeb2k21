@@ -1,10 +1,10 @@
 #menu_contextuel span{
-    top: 110px;
+    top: 50px;
 }
 #menu_contextuel input:checked ~ span{
     /*on va centrer la croix pour l'animation*/
-    left: 7px;
-    top: 111px;
+    top: 52px;
+    left: 64px;
 }
 
 /* SECTION */

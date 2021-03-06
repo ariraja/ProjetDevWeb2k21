@@ -59,6 +59,9 @@ header{
 }
 
 /** Contenu principal **/
+.menu_gauche{
+    width: 15%;
+}
 .main-content{
     width: 100%;
     display: flex;
@@ -66,10 +69,7 @@ header{
 
 /* MENU LATERAL / ASIDE */
 #menu_contextuel{
-    display: block;
-    position: relative;
-    top: 50px;
-    left: 50px;
+ width: 100%;
     z-index: 1;
     float: left;
 }
@@ -81,7 +81,7 @@ header{
     background: white;
     position: absolute;
     top:112px;
-    left: -8px;
+    left: 50px;
     z-index: 1;
 }
 
@@ -91,13 +91,14 @@ header{
     height: 40px;
     position: absolute;
     top: 115px;
-    left: -8px;
+    left: 50px;
     cursor: pointer;
     opacity: 0; 
     z-index: 2;
 }
 #menu_contextuel span{
-    top: 125px;
+    top:67px;
+    left: 59px;
     display: block;
     width: 33px;
     height: 4px;
@@ -122,8 +123,8 @@ header{
     transform: rotate(45deg) translate(-2px, -1px);/*forme la croix qd on clique*/
     background: #232323;
     /*on va centrer la croix pour l'animation*/
-    left: 7px;
-    top: 128px;
+    top:70px;
+    left: 64px;
 }
 #menu_contextuel input:checked ~ span:nth-last-child(3){
     opacity: 0;
@@ -132,28 +133,28 @@ header{
 #menu_contextuel input:checked ~ span:nth-last-child(2){
     transform: rotate(-45deg) translate(0, -1px);/*forme la croix qd on clique*/
 }
-#menu_contextuel a{
-    text-decoration: none;
-    color: #232323;  
-}
-
 #menu_contextuel input:checked ~ ul{
     transform: none;/*affiche ul*/
 }
+
+#menu_contextuel a{
+    text-decoration: none;
+    color: #232323; 
+    width: 100%;
+}
+
+
 #menu_contextuel-container{
-    position: relative;
-    width: 300px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    margin-top: 65px;
-    margin-right: 50px;
+    margin-top: 100px;
     background: #353036;
     list-style-type: none;
     transform: translate(-100%, 0);/*rend menu invisible au début*/
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0); /*animation déoule menu*/
+    position: relative;
 }
+
 #menu_contextuel-container li{
+    width: 100%;
     padding: 10px 0;
     color: #ffffff;
     font-family: calibri;
@@ -173,7 +174,7 @@ header{
     color:white;
     float: right;
     top: 50%;
-    width: 70%;
+    width: 85%;
 }
 
 .whats-new{
@@ -275,7 +276,6 @@ footer{
 .bloc span ul li a:hover{
     color:red;
 }
-
 
 .copyright{
     display: inline-block;
