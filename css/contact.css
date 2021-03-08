@@ -1,15 +1,18 @@
 #menu_contextuel span{
-    top: 50px;
+    top: 48px;
 }
 #menu_contextuel input:checked ~ span{
     /*on va centrer la croix pour l'animation*/
-    top: 52px;
+    top: 50px;
     left: 64px;
 }
 
 /* SECTION */
+.main-content{
+    border-top: 2px solid #fff ;
+}
 .form-section{
-    background-color: dimgrey;
+    background-color: #ea272d;
     box-shadow:2px 2px 12px rgba(0,0,0,0.20);
     color:white;
     float: right;
@@ -20,7 +23,7 @@
 }
 .form-style{
     display: block;
-    background-color: #ea272d;
+    background-color: dimgrey;
     border-radius: 20px;
     width: 70%;
     margin-bottom: 30px;
