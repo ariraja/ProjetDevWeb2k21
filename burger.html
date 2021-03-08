@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/burger.css">
         <link rel="icon" type="image/png" sizes="18
                                                  5x15" href="img/miniature.png">
+        <script type="text/javascript" src="js/burger.js"></script>
     </head>
     <body>
         <!--   HEADER    -->
@@ -53,49 +54,52 @@
             <section class="main-section">
                <h1 class="whats-new">Burger</h1>
                 <div class="container">
-                    <table>
+                    <table id="tab">
                         <tr>
                             <th style="width:110px;"><img src="img/burger_hamburger.jpg" width="70px" height="70px"></th>
                             <th style="width:70px;">burger01</th>
                             <th style="width:70px;">Hamburger</th>
                             <th style="width:70px;">5€</th>
-                            <th style="width:70px;">10</th>
-                            <th><input class="plus" type="button" value="-"> <input type="text" id="qte"> <input class="moins" type="button" value="+"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input class="moins" type="button" value="-" onclick="moins1()"> <input type="text" id="qte1" value="0"> <input class="plus" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
                             <th style="width:110px;"><img src="img/cheeseburger.png" width="70px" height="70px"></th>
                             <th style="width:70px;">burger02</th>
                             <th style="width:70px;">Cheese Burger</th>
                             <th style="width:70px;">5€</th>
-                            <th style="width:70px;">10</th>
-                            <th><input class="plus" type="button" value="-"> <input type="text" id="qte"> <input class="moins" type="button" value="+"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input class="moins" type="button" value="-" onclick="moins2()"> <input type="text" id="qte2" value="0"> <input class="plus" type="button" value="+" onclick="plus2()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
                             <th style="width:110px;"><img src="img/burger_cheesebacon.jpg" width="70px" height="70px"></th>
                             <th style="width:70px;">burger03</th>
                             <th style="width:70px;">Cheese Bacon</th>
                             <th style="width:70px;">6€</th>
-                            <th style="width:70px;">10</th>
-                            <th><input class="plus" type="button" value="-"> <input type="text" id="qte"> <input class="moins" type="button" value="+"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input class="moins" type="button" value="-" onclick="moins3()"> <input type="text" id="qte3" value="0"> <input class="plus" type="button" value="+" onclick="plus3()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
                             <th style="width:110px;"><img src="img/burger_doublecheese.jpg" width="70px" height="70px"></th>
                             <th style="width:70px;">burger04</th>
                             <th style="width:70px;">Double Cheese</th>
                             <th style="width:70px;">6€</th>
-                            <th style="width:70px;">10</th>
-                            <th><input class="plus" type="button" value="-"> <input type="text" id="qte"> <input class="moins" type="button" value="+"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input class="moins" type="button" value="-" onclick="moins4()"> <input type="text" id="qte4" value="0"> <input class="plus" type="button" value="+" onclick="plus4()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
                             <th style="width:110px;"><img src="img/burger_bigmac.jpg" width="70px" height="70px"></th>
                             <th style="width:70px;">burger05</th>
                             <th style="width:70px;">Big Mac</th>
                             <th style="width:70px;">7€</th>
-                            <th style="width:70px;">10</th>
-                            <th><input class="plus" type="button" value="-"> <input type="text" id="qte"> <input class="moins" type="button" value="+"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input class="moins" type="button" value="-" onclick="moins5()"> <input type="text" id="qte5" value="0"> <input class="plus" type="button" value="+" onclick="plus5()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                     </table>
                 </div>
+                <br>
+                <button onclick="suppStock()">Cacher</button>
+                <br>
             </section>
         </div>
 
@@ -139,9 +143,5 @@
                <p>© CY SPOT All rights reserved. | CY SPOT Webmaster</p>
             </div>
         </footer>
-
-
-
-
     </body>
 </html>
