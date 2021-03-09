@@ -80,6 +80,9 @@ function suppStock(){
     }
 }
 
+function commande(){
+    prompt('wsh');
+}
 
 
 
