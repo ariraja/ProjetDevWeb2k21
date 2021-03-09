@@ -28,20 +28,22 @@ function Verif_Vide(){//vérirfie les autres champs vides
 
 function valider() {//on va vérifier les champs nom, prénom et email  
     var Ok = true;
+    
     //Validation du nom
     let nom = document.getElementById("nom");
     let missNom = document.getElementById("nom_manquant");
     let nomValid = /^[a-zA-ZéèîïÉÈÎÏ-\s]+$/;
-    if (nom.validity.valueMissing) { //si champ nom vide
-        missNom.textContent = 'Entrez votre nom !';
+    if(nom.value.length==0){//si champ nom vide
+		missNom.textContent = 'Entrez votre nom !';
         missNom.style.color = 'red';
         Ok = false;
-    }
-    if (nomValid.test(nom.value) == false) { //Si le format de données est incorrect
+	}
+    else if (nomValid.test(nom.value) == false) { //Si le format de données est incorrect
         missNom.textContent = "Le nom ne doit pas contenir de chiffres ou de caractères spéciaux !";
         missNom.style.color = "red";
         Ok = false;
-    }else{
+    }
+    else{
         missNom.style.display = 'none';
     }
 
@@ -49,31 +51,33 @@ function valider() {//on va vérifier les champs nom, prénom et email
     let prenom = document.getElementById("prenom");
     let missPrenom = document.getElementById("prenom_manquant");
     let prenomValid = /^[a-zA-ZéèîïÉ-\s]+$/;
-    if (prenom.validity.valueMissing) { //si champ nom vide
+    if (prenom.value.length==0) { 
         missPrenom.textContent = 'Entrez votre prénom !';
         missPrenom.style.color = 'red';
         Ok = false;
     }
-    if (prenomValid.test(prenom.value) == false) { 
+    else if (prenomValid.test(prenom.value) == false) { 
         missPrenom.textContent = "Le prénom ne doit pas contenir de chiffres ou de caractères spéciaux !";
         missPrenom.style.color = "red";
         Ok = false;
-    }else{missPrenom.style.display = 'none';}
+    }
+    else{missPrenom.style.display = 'none';}
 
     //Validation du mail
     let mail = document.getElementById("email");
     let missMail = document.getElementById("email_manquant");
     let mailValid = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-    if (mail.validity.valueMissing) { //si champ nom vide
+    if (mail.value.length==0) { //si champ nom vide
         missMail.textContent = 'Entrez votre mail !';
         missMail.style.color = 'red';
         Ok = false;
     }
-    if (mailValid.test(mail.value) == false) { 
+    else if (mailValid.test(mail.value) == false) { 
         missMail.textContent = "Le mail doit s'écrire comme sous cette forme : monmail@mail.com";
         missMail.style.color = "red";
         Ok = false;
-    }else{
+    }
+    else{
         missMail.style.display = 'none';
     }
     
