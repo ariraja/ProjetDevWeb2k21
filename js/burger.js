@@ -3,67 +3,73 @@ function plus1(){
     if(n.value < 11){
     n.value++;
     }
-
 }
 
 function plus2(){
-    if(n.value != 10){
     n = document.getElementById("qte2");
-    n.value = parseInt(n.value)+1;
+    if(n.value < 11){
+    n.value++;
     }
 }
 
 function plus3(){
- 
     n = document.getElementById("qte3");
-    n.value = parseInt(n.value)+1;
-    
+    if(n.value < 11){
+    n.value++;
+    }
 }
 
 function plus4(){
-    if(n.value != 10){
     n = document.getElementById("qte4");
-    n.value = parseInt(n.value)+1;
+    if(n.value < 11){
+    n.value++;
     }
 }
 
 function plus5(){
     n = document.getElementById("qte5");
-    n.value = parseInt(n.value)+1;
+    if(n.value < 11){
+    n.value++;
+    }
 }
 
 function moins1(){
-    if(n.value != 0){
     n = document.getElementById("qte1");
-    n.value = parseInt(n.value)-1;
+    if(n.value > 0){
+    n.value--;
     }
+//moins = document.getElementsByClassName("moins1");
+//if(n.value == 0){
+//    moins.disabled = true;
+//    console.log('*');
+//}
 }
 
 function moins2(){
-    if(n.value != 0){
-    n = document.getElementById("qte2");
-    n.value = parseInt(n.value)-1;
-    }
+n = document.getElementById("qte2");
+if(n.value > 0){
+n.value--;
+}
 }
 
 function moins3(){
-    if(n.value != 0){
-    n = document.getElementById("qte3");
-    n.value = parseInt(n.value)-1;
-    }
+n = document.getElementById("qte3");
+if(n.value > 0){
+n.value--;
+}
 }
 
 function moins4(){
-    if(n.value != 0){
-    n = document.getElementById("qte4");
-    n.value = parseInt(n.value)-1;
-    }
+n = document.getElementById("qte4");
+if(n.value > 0){
+n.value--;
+}
 }
 
 function moins5(){
-    if(n.value != 0){
     n = document.getElementById("qte5");
-    n.value = parseInt(n.value)-1;
+    if(n.value > 0){
+    n.value--;
     }
 }
 
@@ -73,3 +79,4 @@ function suppStock(){
         st.style.display='none';
     }
 }
+
