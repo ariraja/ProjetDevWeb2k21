@@ -5,9 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/pizza.css">
+        <link rel="stylesheet" type="text/css" href="css/burger.css">
         <link rel="icon" type="image/png" sizes="18
                                                  5x15" href="img/miniature.png">
+                                                  <script type="text/javascript" src="js/burger.js"></script>
     </head>
     <body>
         <!--   HEADER    -->
@@ -56,37 +57,50 @@
                 <div class="container">
                     <table>
                         <tr>
-                            <th><img src="img/pepperoni.png"></th>
-                            <th>p01</th>
-                            <th>Pizza Pepperoni</th>
-                            <th>9,99€</th>
+                            <th style="width:110px;"><img src="img/pepperoni.png" width="70px" height="70px"></th>
+                            <th style="width:70px;">p01</th>
+                            <th style="width:70px;">Pizza Pepperoni</th>
+                            <th style="width:70px;">9,99€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/4F.png"></th>
-                            <th>p02</th>
-                            <th>Pizza 4 Fromages</th>
-                            <th>8€</th>
+                            <th style="width:110px;"><img src="img/4F.png" width="70px" height="70px"></th>
+                            <th style="width:70px;">p02</th>
+                            <th style="width:70px;">Pizza 4 Fromages</th>
+                            <th style="width:110px;">8€</th>
+                             <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins2" type="button" value="-" onclick="moins2()" disabled> <input type="text" id="qte2" value="0"> <input id="plus2" type="button" value="+" onclick="plus2()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/reine.png"></th>
-                            <th>p03</th>
-                            <th>Pizza Reine</th>
-                            <th>7€</th>
+                            <th style="width:110px;"><img src="img/reine.png" width="70px" height="70px"></th>
+                            <th style="width:70px;">p03</th>
+                            <th style="width:70px;">Pizza Reine</th>
+                            <th style="width:70px;">7€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins3" type="button" value="-" onclick="moins3()" disabled> <input type="text" id="qte3" value="0"> <input id="plus3" type="button" value="+" onclick="plus3()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/tartiflette.png"></th>
-                            <th>p04</th>
-                            <th>Pizza Tartiflette</th>
-                            <th>11€</th>
+                            <th style="width:110px;"><img src="img/tartiflette.png" width="70px" height="70px"></th>
+                            <th style="width:70px;">p04</th>
+                            <th style="width:70px;">Pizza Tartiflette</th>
+                            <th style="width:70px;">11€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins4" type="button" value="-" onclick="moins4()" disabled> <input type="text" id="qte4" value="0"> <input id="plus4" type="button" value="+" onclick="plus4()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/sicilienne.png"></th>
-                            <th>p05</th>
-                            <th>Pizza Sicilienne</th>
-                            <th>10€</th>
+                            <th style="width:110px;"><img src="img/sicilienne.png" width="70px" height="70px"></th>
+                            <th style="width:70px;">p05</th>
+                            <th style="width:70px;">Pizza Sicilienne</th>
+                            <th style="width:70px;">10€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins5" type="button" value="-" onclick="moins5()" disabled> <input type="text" id="qte5" value="0"> <input id="plus5" type="button" value="+" onclick="plus5()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                     </table>
                 </div>
+                <br>
+                <button onclick="suppStock()">Cacher</button>
+                <br>
             </section>
         </div>
 
