@@ -13,3 +13,11 @@ th img{
     height: 100px;
     width: 100px;
 }
+
+th img {      
+  transition: transform 1s;      
+}
+th:hover img {     
+  transform: scale(1.2) rotate(0deg) ;
+  transition: transform 3s;    
+}
