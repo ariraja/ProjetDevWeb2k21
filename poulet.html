@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/burger.css">
         <link rel="icon" type="image/png" sizes="18
                                                  5x15" href="img/miniature.png">
+        <script type="text/javascript" src="js/burger.js"></script>
     </head>
     <body>
         <!--   HEADER    -->
@@ -55,37 +56,50 @@
                 <div class="container">
                     <table>
                         <tr>
-                            <th><img src="img/tenders.jpg" width="70px" height="70px"></th>
-                            <th>poulet01</th>
-                            <th>Tenders (10 pièces)</th>
-                            <th>7€</th>
+                            <th style="width:110px;"><img src="img/tenders.jpg" width="70px" height="70px"></th>
+                            <th style="width:70px;">poulet01</th>
+                            <th style="width:70px;">Tenders (10 pièces)</th>
+                            <th style="width:70px;">7€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/wings.jpg" width="70px" height="70px"></th>
-                            <th>poulet02</th>
-                            <th>Wings Nature (10 pièces)</th>
-                            <th>7€</th>
+                            <th style="width:110px;"><img src="img/wings.jpg" width="70px" height="70px"></th>
+                            <th style="width:70px;">poulet02</th>
+                            <th style="width:70px;">Wings Nature (10 pièces)</th>
+                            <th style="width:70px;">7€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/wings_bbq.jpg" width="70px" height="70px"></th>
-                            <th>poulet03</th>
-                            <th>Wings Bbq (10 pièces)</th>
-                            <th>8€</th>
+                            <th style="width:110px;"><img src="img/wings_bbq.jpg" width="70px" height="70px"></th>
+                            <th style="width:70px;">poulet03</th>
+                            <th style="width:70px;">Wings Bbq (10 pièces)</th>
+                            <th style="width:70px;">8€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/bucket_tenders.jpg" width="70px" height="70px"></th>
-                            <th>poulet04</th>
-                            <th>Bucket Tenders (20 pièces)</th>
-                            <th>13€</th>
+                            <th style="width:110px;"><img src="img/bucket_tenders.jpg" width="70px" height="70px"></th>
+                            <th style="width:70px;">poulet04</th>
+                            <th style="width:70px;">Bucket Tenders (20 pièces)</th>
+                            <th style="width:70px;">13€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th><img src="img/bucket_wings.jpg" width="70px" height="70px"></th>
-                            <th>poulet05</th>
-                            <th>Bucket Wings (20 pièces)</th>
-                            <th>13€</th>
+                            <th style="width:110px;"><img src="img/bucket_wings.jpg" width="70px" height="70px"></th>
+                            <th style="width:70px;">poulet05</th>
+                            <th style="width:70px;">Bucket Wings (20 pièces)</th>
+                            <th style="width:70px;">13€</th>
+                            <th style="width:70px;" class="stock">10</th>
+                            <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                     </table>
                 </div>
+                <br>
+                <button onclick="suppStock()">Cacher</button>
+                <br>
             </section>
         </div>
 
