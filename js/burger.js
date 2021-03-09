@@ -1,7 +1,7 @@
 function plus1(){
-    if(n.value != 10){
     n = document.getElementById("qte1");
-    n.value = parseInt(n.value)+1;
+    if(n.value < 11){
+    n.value++;
     }
 
 }
@@ -30,7 +30,6 @@ function plus4(){
 function plus5(){
     n = document.getElementById("qte5");
     n.value = parseInt(n.value)+1;
-
 }
 
 function moins1(){
@@ -65,5 +64,12 @@ function moins5(){
     if(n.value != 0){
     n = document.getElementById("qte5");
     n.value = parseInt(n.value)-1;
+    }
+}
+
+function suppStock(){
+    for(var i=0;i<5;i++){
+        st=document.getElementsByClassName("stock")[i];
+        st.style.display='none';
     }
 }
