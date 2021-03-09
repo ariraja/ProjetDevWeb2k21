@@ -289,3 +289,15 @@ footer{
     color:#B9B9B9;
 }
 
+
+/*RESPONSIVE à faire à la fin*/
+@media all and (max-width:862px){
+
+    .menuh{
+        display: inline-block;
+    }
+
+}
+
+
+
