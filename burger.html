@@ -60,6 +60,7 @@
                     <div class="login-popup">
                       <div class="form-popup" id="popupForm">
                         <form action="/action_page.php" class="form-container">
+                         <img src="img/logo.png"/>
                           <h2 style="color:black;font-family:calibri;">Veuillez vous connecter</h2>
                           <label for="email">
                           <strong>E-mail</strong>
@@ -69,6 +70,8 @@
                           <strong>Mot de passe</strong>
                           </label>
                           <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required>
+                          <span>Si vous n'avez pas de compte,<a href="inscription.html"> inscrivez-vous.</a></span>
+                            <br><br/>
                           <button type="submit" class="btn">Connecter</button>
                           <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
                         </form>
@@ -78,7 +81,7 @@
                     <table>
 
                         <tr>
-                            <th style="width:110px;"><img src="img/burger_hamburger.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/burger_hamburger.jpg"></th>
                             <th style="width:70px;">burger01</th>
                             <th style="width:70px;">Hamburger</th>
                             <th style="width:70px;">5€</th>
@@ -86,7 +89,7 @@
                             <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/cheeseburger.png" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/cheeseburger.png"></th>
                             <th style="width:70px;">burger02</th>
                             <th style="width:70px;">Cheese Burger</th>
                             <th style="width:70px;">5€</th>
@@ -94,7 +97,7 @@
                             <th><input id="moins2" type="button" value="-" onclick="moins2()" disabled> <input type="text" id="qte2" value="0"> <input id="plus2" type="button" value="+" onclick="plus2()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/burger_cheesebacon.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/burger_cheesebacon.jpg"></th>
                             <th style="width:70px;">burger03</th>
                             <th style="width:70px;">Cheese Bacon</th>
                             <th style="width:70px;">6€</th>
@@ -102,7 +105,7 @@
                             <th><input id="moins3" type="button" value="-" onclick="moins3()" disabled> <input type="text" id="qte3" value="0"> <input id="plus3" type="button" value="+" onclick="plus3()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/burger_doublecheese.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/burger_doublecheese.jpg"></th>
                             <th style="width:70px;">burger04</th>
                             <th style="width:70px;">Double Cheese</th>
                             <th style="width:70px;">6€</th>
@@ -110,7 +113,7 @@
                             <th><input id="moins4" type="button" value="-" onclick="moins4()" disabled> <input type="text" id="qte4" value="0"> <input id="plus4" type="button" value="+" onclick="plus4()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/burger_bigmac.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/burger_bigmac.jpg"></th>
                             <th style="width:70px;">burger05</th>
                             <th style="width:70px;">Big Mac</th>
                             <th style="width:70px;">7€</th>

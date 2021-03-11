@@ -39,7 +39,9 @@
                 <div id="menu_contextuel">
                     <div id="circle"></div>
                     <input type="checkbox" />
-
+                    <span></span>
+                    <span></span>
+                    <span></span>
                      <ul id="menu_contextuel-container">
                         <a href="index.html"><li>Accueil</li></a>
                         <a href="burger.html"><li>Burger🍔</li></a>
@@ -58,6 +60,7 @@
                     <div class="login-popup">
                       <div class="form-popup" id="popupForm">
                         <form action="/action_page.php" class="form-container">
+                         <img src="img/logo.png"/>
                           <h2 style="color:black;font-family:calibri;">Veuillez vous connecter</h2>
                           <label for="email">
                           <strong>E-mail</strong>
@@ -67,6 +70,8 @@
                           <strong>Mot de passe</strong>
                           </label>
                           <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required>
+                          <span>Si vous n'avez pas de compte,<a href="inscription.html"> inscrivez-vous.</a></span>
+                            <br><br/>
                           <button type="submit" class="btn">Connecter</button>
                           <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
                         </form>
@@ -75,7 +80,7 @@
                     
                     <table>
                         <tr>
-                            <th style="width:110px;"><img src="img/tenders.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/tenders.jpg"></th>
                             <th style="width:70px;">poulet01</th>
                             <th style="width:70px;">Tenders (10 pièces)</th>
                             <th style="width:70px;">7€</th>
@@ -83,7 +88,7 @@
                             <th><input id="moins1" type="button" value="-" onclick="moins1()" disabled> <input type="text" id="qte1" value="0"> <input id="plus1" type="button" value="+" onclick="plus1()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/wings.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/wings.jpg"></th>
                             <th style="width:70px;">poulet02</th>
                             <th style="width:70px;">Wings Nature (10 pièces)</th>
                             <th style="width:70px;">7€</th>
@@ -91,7 +96,7 @@
                             <th><input id="moins2" type="button" value="-" onclick="moins2()" disabled> <input type="text" id="qte2" value="0"> <input id="plus2" type="button" value="+" onclick="plus2()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/wings_bbq.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/wings_bbq.jpg"></th>
                             <th style="width:70px;">poulet03</th>
                             <th style="width:70px;">Wings Bbq (10 pièces)</th>
                             <th style="width:70px;">8€</th>
@@ -99,7 +104,7 @@
                             <th><input id="moins3" type="button" value="-" onclick="moins3()" disabled> <input type="text" id="qte3" value="0"> <input id="plus3" type="button" value="+" onclick="plus3()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/bucket_tenders.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/bucket_tenders.jpg"></th>
                             <th style="width:70px;">poulet04</th>
                             <th style="width:70px;">Bucket Tenders (20 pièces)</th>
                             <th style="width:70px;">13€</th>
@@ -107,7 +112,7 @@
                             <th><input id="moins4" type="button" value="-" onclick="moins4()" disabled> <input type="text" id="qte4" value="0"> <input id="plus4" type="button" value="+" onclick="plus4()"><br><br><input class="AddCart" type="button" value="Ajouter au panier"> </th>
                         </tr>
                         <tr>
-                            <th style="width:110px;"><img src="img/bucket_wings.jpg" width="70px" height="70px"></th>
+                            <th style="width:110px;"><img src="img/bucket_wings.jpg"></th>
                             <th style="width:70px;">poulet05</th>
                             <th style="width:70px;">Bucket Wings (20 pièces)</th>
                             <th style="width:70px;">13€</th>
