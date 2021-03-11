@@ -81,6 +81,44 @@ function valider() {//on va vérifier les champs nom, prénom et email
         missMail.style.display = 'none';
     }
     
+    //Validation de la date
+    let d= document.getElementById("naissance_date");
+    let missd = document.getElementById("date_manquant");
+    if(d.valueAsDate==null){
+        missd.textContent = 'Entrez votre date de naissance !';
+        missd.style.color = 'red';
+        Ok = false;
+    }
+    else{
+        missd.style.display = 'none';
+    }
+    
+    //Validation de l'objet
+    let o= document.getElementById("objet");
+    let misso = document.getElementById("objet_manquant");
+    if(o.value.length==0){
+        misso.textContent = 'Entrez un objet !';
+        misso.style.color = 'red';
+        Ok = false;
+    }
+    else{
+        misso.style.display = 'none';
+    }
+    
+    
+    //Validation de la date
+    let c= document.getElementById("contenu");
+    let missc = document.getElementById("contenu_manquant");
+    if(c.value.length==0){
+        missc.textContent = 'Entrez du contenu !';
+        missc.style.color = 'red';
+        Ok = false;
+    }
+    else{
+        missc.style.display = 'none';
+    }
+    
+    
     if (Ok) {//champs Nom,prenom et mail validés
         let Validnom=nom.value;
         let Validprenom=prenom.value;
@@ -93,6 +131,9 @@ function valider() {//on va vérifier les champs nom, prénom et email
         console.log(contact); 
         return Ok;
     }
+    
+    
+    
     return Ok;
 }
 

@@ -79,7 +79,8 @@
                     <input type="radio" name="genre" value="H" checked> Femme <input type="radio" name="genre" value="F"> Homme<br><br/>
 
                     <label for="naissance_date">Date de naissance :</label>
-                    <input type="date" id="naissance_date" name="naissance_date"><br><br/>
+                    <input type="date" id="naissance_date" name="naissance_date">
+                    <span id="date_manquant"></span><br><br/>
 
                     <label for="fonction">Fonction :</label>
                     <select name="fonction">
@@ -92,10 +93,12 @@
                     </select><br><br/>
 
                     <label for="objet">Objet :</label>
-                    <input type="text" name="objet" id="objet" placeholder="Entrez l'objet de votre mail"><br><br/>
+                    <input type="text" name="objet" id="objet" placeholder="Entrez l'objet de votre mail">
+                    <span id="objet_manquant"></span><br><br/>
 
                     <label for="contenu">Contenu :</label>
-                    <textarea id="contenu" name="contenu" placeholder="Entrez du contenu dans votre mail"></textarea><br><br/>
+                    <textarea id="contenu" name="contenu" placeholder="Entrez du contenu dans votre mail"></textarea>
+                    <span id="contenu_manquant"></span><br><br/>
 
                     <input type="submit" id="submit" class="submit" value="Envoyer">
                     <br><br/>
