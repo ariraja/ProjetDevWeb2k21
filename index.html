@@ -10,6 +10,7 @@
         <link rel="stylesheet" media="all and (max-width:712px)" href="css/index.css"/>
         <link rel="icon" type="image/png" sizes="18
                                                  5x15" href="img/miniature.png">
+        <script type="text/javascript" src="js/burger.js"></script>
     </head>
     <body>
         <!--   HEADER    -->
@@ -24,7 +25,7 @@
                     <li><a href="pizza.html">Pizza🍕</a></li>
                     <li><a href="contact.html">Contact📞</a></li>
                 </ul>
-                <div><a href="#" id="panier">Commande🛒</a></div>
+                <div><a href="#" id="panier" onclick="openForm()">Commande🛒</a></div>
             </nav>
         </header>
         <!--    Menu latéral    -->
@@ -52,6 +53,26 @@
 
 
             <section class="main-section">
+                
+                <div class="overlay"></div>
+                    <div class="login-popup">
+                      <div class="form-popup" id="popupForm">
+                        <form action="/action_page.php" class="form-container">
+                          <h2>Veuillez vous connecter</h2>
+                          <label for="email">
+                          <strong>E-mail</strong>
+                          </label>
+                          <input type="text" id="email" placeholder="Votre Email" name="email" required>
+                          <label for="psw">
+                          <strong>Mot de passe</strong>
+                          </label>
+                          <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required>
+                          <button type="submit" class="btn">Connecter</button>
+                          <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
+                        </form>
+                      </div>
+                </div>
+                
                 <div class="whats-new">
                     <img src="img/WHATS%20NEW.png">
                 </div>
