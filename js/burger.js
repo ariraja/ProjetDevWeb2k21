@@ -139,7 +139,24 @@ function suppStock(){
         st=document.getElementsByClassName("stock")[i];
         st.style.display='none';
     }
+    r=document.getElementById("rajoute-btn");
+    c=document.getElementById("cache-btn");
+    c.style.display='none';
+    r.style.display='block';
 }
+
+function rajouteStock(){
+    for(var i=0;i<5;i++){
+        st=document.getElementsByClassName("stock")[i];
+        st.style.display='table-cell';
+        st.style.width="70px";
+    }
+    r=document.getElementById("rajoute-btn");
+    r.style.display='none';
+    c=document.getElementById("cache-btn");
+    c.style.display='initial';
+}
+
 
 function openForm() {
 document.getElementById("popupForm").style.display = "block";
@@ -151,6 +168,7 @@ function closeForm() {
 document.getElementById("popupForm").style.display = "none";
 document.getElementsByClassName("overlay")[0].style.display = "none";
 }
+
 
 
 

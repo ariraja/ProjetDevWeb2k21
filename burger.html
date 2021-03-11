@@ -59,7 +59,7 @@
                     <div class="login-popup">
                       <div class="form-popup" id="popupForm">
                         <form action="/action_page.php" class="form-container">
-                          <h2>Veuillez vous connecter</h2>
+                          <h2 style="color:black;font-family:calibri;">Veuillez vous connecter</h2>
                           <label for="email">
                           <strong>E-mail</strong>
                           </label>
@@ -72,12 +72,12 @@
                           <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
                         </form>
                       </div>
-                    </div>
-                
-                    
-                    <table id="tab">
+                </div>
+
+                    <table>
+
                         <tr>
-                            <th style="width:110px;"><img src="img/burger_hamburger.jpg" width="70px" height="70px" onclick="zoom(this)"></th>
+                            <th style="width:110px;"><img src="img/burger_hamburger.jpg" width="70px" height="70px"></th>
                             <th style="width:70px;">burger01</th>
                             <th style="width:70px;">Hamburger</th>
                             <th style="width:70px;">5€</th>
@@ -119,7 +119,8 @@
                     </table>
                 </div>
                 <br>
-                <button onclick="suppStock()">Cacher</button>
+                <button onclick="suppStock()" id="cache-btn">Cacher</button>
+                <button onclick="rajouteStock()" style="display: none;" id="rajoute-btn">Dévoiler</button>
                 <br>
             </section>
         </div>

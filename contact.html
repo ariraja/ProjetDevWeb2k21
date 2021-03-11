@@ -9,6 +9,7 @@
         <link rel="icon" type="image/png" sizes="18
                                                  5x15" href="img/miniature.png">
         <script type="text/javascript" src="js/contact.js"></script>
+        <script type="text/javascript" src="js/burger.js"></script>
     </head>
     <body>
         <!--   HEADER    -->
@@ -24,7 +25,7 @@
                     <li><a href="contact.html">Contact📞</a></li>
 
                 </ul>
-                <div><a href="#" id="panier">Commande🛒</a></div>
+                <div><a href="#" id="panier" onclick="openForm()">Commande🛒</a></div>
             </nav>
         </header>
 
@@ -53,6 +54,25 @@
             <section class="form-section">
                 <br><br/>
                 
+                <div class="overlay"></div>
+                    <div class="login-popup">
+                      <div class="form-popup" id="popupForm">
+                        <form action="/action_page.php" class="form-container">
+                          <h2 style="color:black;font-family:calibri;">Veuillez vous connecter</h2>
+                          <label for="email">
+                          <strong>E-mail</strong>
+                          </label>
+                          <input type="text" id="email" placeholder="Votre Email" name="email" required>
+                          <label for="psw">
+                          <strong>Mot de passe</strong>
+                          </label>
+                          <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required>
+                          <button type="submit" class="btn">Connecter</button>
+                          <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
+                        </form>
+                      </div>
+                </div>
+                
                 <h1>Demande de contact</h1>
                 <div class="form-style">
                 <form method="post" id="monForm" action="envoi.html" onsubmit="return Verif()">
@@ -79,7 +99,8 @@
                     <input type="radio" name="genre" value="H" checked> Femme <input type="radio" name="genre" value="F"> Homme<br><br/>
 
                     <label for="naissance_date">Date de naissance :</label>
-                    <input type="date" id="naissance_date" name="naissance_date"><br><br/>
+                    <input type="date" id="naissance_date" name="naissance_date">
+                    <span id="date_manquant"></span><br><br/>
 
                     <label for="fonction">Fonction :</label>
                     <select name="fonction">
@@ -92,10 +113,12 @@
                     </select><br><br/>
 
                     <label for="objet">Objet :</label>
-                    <input type="text" name="objet" id="objet" placeholder="Entrez l'objet de votre mail"><br><br/>
+                    <input type="text" name="objet" id="objet" placeholder="Entrez l'objet de votre mail">
+                    <span id="objet_manquant"></span><br><br/>
 
                     <label for="contenu">Contenu :</label>
-                    <textarea id="contenu" name="contenu" placeholder="Entrez du contenu dans votre mail"></textarea><br><br/>
+                    <textarea id="contenu" name="contenu" placeholder="Entrez du contenu dans votre mail"></textarea>
+                    <span id="contenu_manquant"></span><br><br/>
 
                     <input type="submit" id="submit" class="submit" value="Envoyer">
                     <br><br/>
