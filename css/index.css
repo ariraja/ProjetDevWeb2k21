@@ -1,11 +1,11 @@
 body{
     margin: 0px;
     padding-bottom: 250px;
-    /*background-image: url(../img/bg.jpg);
+    background-image: url(https://drive.google.com/uc?id=1cbXfnGxPvnWlik6Sr0b3e7Xv8wJ-dyJO&authuser=rajaoferaa%40eisti.eu&usp=drive_fs);
     background-attachment: fixed;
     background-size: cover;
-    background-repeat: no-repeat;*/
-    background: #353036;
+    background-repeat: no-repeat;
+    
     position: relative;
 }
 ul{
@@ -207,17 +207,29 @@ header{
     margin:10px;
     float: right;
 }
-.new{
-    background-image: url(../img/new_tenders.jpg);
+.new_pizza{
+    background-image: url(https://drive.google.com/uc?id=1izEhTqq2pl4RJe9ql4VrtxTbSLgjIWJT&authuser=rajaoferaa%40eisti.eu&usp=drive_fs);
     background-size: cover;
     background-repeat: no-repeat;
 }
-.new h2{
+.new_burger{
+    background-image: url(https://drive.google.com/uc?id=1djqf5xhXnnoXC4zljDQnA_QCMUNpbfra&authuser=rajaoferaa%40eisti.eu&usp=drive_fs);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.new_poulet{/*fils de new*/
+    background-image: url(https://drive.google.com/uc?id=1-d442MFgtx2WZTFiPO2gDS37Edvt7rV5&authuser=rajaoferaa%40eisti.eu&usp=drive_fs);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.new_pizza h2{
     font-size:40px;
     font-weight:bold;
     font-family:calibri;
 }
-.new p{
+.new_pizza p{
     color:#FFFFFF;
     line-height:50px;	
     padding:0px;
@@ -225,14 +237,56 @@ header{
     font-size:30px;
     font-family:myriad pro;
 }
-.new:nth-child(2n){/*fils de new*/
-    background-image: url(../img/new_burger.jpg);
-}
-.new:nth-child(3){/*fils de new*/
-    background-image: url(../img/new_pizza.png);
+.new_pizza input{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
-.new input{
+
+.new_burger h2{
+    font-size:40px;
+    font-weight:bold;
+    font-family:calibri;
+}
+.new_burger p{
+    color:#FFFFFF;
+    line-height:50px;	
+    padding:0px;
+    margin:0px;
+    font-size:30px;
+    font-family:myriad pro;
+}
+.new_burger input{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.new_poulet h2{
+    font-size:40px;
+    font-weight:bold;
+    font-family:calibri;
+}
+.new_poulet p{
+    color:#FFFFFF;
+    line-height:50px;	
+    padding:0px;
+    margin:0px;
+    font-size:30px;
+    font-family:myriad pro;
+}
+.new_poulet input{
     background-color: #f44336;
     border: none;
     color: white;
