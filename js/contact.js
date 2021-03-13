@@ -1,7 +1,7 @@
 //Vérification du formulaire
 function Maj_Date() {
     var ajd=new Date();
-    document.getElementById("contact_date").valueAsDate=ajd;//on met par défaut la date du contact 
+ document.getElementById("contact_date").valueAsDate=ajd;//on met par défaut la date du contact 
 }
 
 function Verif_Vide(){//vérirfie les autres champs vides
@@ -64,21 +64,24 @@ function valider() {//on va vérifier les champs nom, prénom et email
     else{missPrenom.style.display = 'none';}
 
     //Validation du mail
-    let mail = document.getElementById("email");
-    let missMail = document.getElementById("email_manquant");
+    let mail = document.getElementById("mail");
+    let missMail = document.getElementById("mail_manquant");
     let mailValid = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     if (mail.value.length==0) { //si champ nom vide
         missMail.textContent = 'Entrez votre mail !';
         missMail.style.color = 'red';
         Ok = false;
+        console.log("*");
     }
     else if (mailValid.test(mail.value) == false) { 
         missMail.textContent = "Le mail doit s'écrire comme sous cette forme : monmail@mail.com";
         missMail.style.color = "red";
         Ok = false;
+        console.log("**");
     }
     else{
         missMail.style.display = 'none';
+        console.log("***");
     }
     
     //Validation de la date
@@ -131,9 +134,6 @@ function valider() {//on va vérifier les champs nom, prénom et email
         console.log(contact); 
         return Ok;
     }
-    
-    
-    
     return Ok;
 }
 

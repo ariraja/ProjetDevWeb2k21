@@ -1,4 +1,3 @@
-
 function openForm() {
 document.getElementById("popupForm").style.display = "block";
 document.getElementsByClassName("overlay")[0].style.display = "block";
