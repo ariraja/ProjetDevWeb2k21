@@ -12,71 +12,26 @@
         <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body>
-        <!--   HEADER    -->
-        <header>
-            <!-- Menu horizontal -->
-            <nav class="menuh">
-                <a href="index.html"><img src="img/logo.png" id="logo" alt=""/></a>
-                <ul> 
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="burger.html">Burger🍔</a></li>
-                    <li><a href="poulet.html">Poulet🍗</a></li>
-                    <li><a href="pizza.html">Pizza🍕</a></li>
-                    <li><a href="contact.html">Contact📞</a></li>
-
-                </ul>
-                <div><a href="#" id="panier" onclick="openForm()">Commande🛒</a></div>
-            </nav>
-        </header>
+        <?php
+        include_once("php/header.php");
+        ?>
 
 
         <!--    Contenu principal    -->
 
         <div class="main-content">
 
-            <!--        Menu contextuel       -->
-            <aside class="menu_gauche">
-                <div id="menu_contextuel">
-                    <div id="circle"></div>
-                    <input type="checkbox" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                     <ul id="menu_contextuel-container">
-                        <a href="index.html"><li>Accueil</li></a>
-                        <a href="burger.html"><li>Burger🍔</li></a>
-                        <a href="poulet.html"><li>Poulet🍗</li></a>
-                        <a href="pizza.html"><li>Pizza🍕</li></a>
-                        <a href="contact.html"><li>Contact📞</li></a>
-                    </ul>
-                </div>
-            </aside>
+            <?php
+            include_once("php/menu_contextuel.php");
+            ?>
 
             <section class="main-section">
                <h1 class="whats-new">Poulet</h1>
                 <div class="container">
                     
-                    <div class="overlay"></div>
-                    <div class="login-popup">
-                      <div class="form-popup" id="popupForm">
-                        <form action="/action_page.php" class="form-container">
-                         <img src="img/logo.png"/>
-                          <h2 style="color:black;font-family:calibri;">Veuillez vous connecter</h2>
-                          <label for="email">
-                          <strong>E-mail</strong>
-                          </label>
-                          <input type="text" id="email" placeholder="Votre Email" name="email" required>
-                          <label for="psw">
-                          <strong>Mot de passe</strong>
-                          </label>
-                          <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required>
-                          <span>Si vous n'avez pas de compte,<a href="inscription.html"> inscrivez-vous.</a></span>
-                            <br><br/>
-                          <button type="submit" class="btn">Connecter</button>
-                          <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
-                        </form>
-                      </div>
-                    </div>
+                    <?php
+                include_once("php/se_connecter.php");
+                ?>
                     
                     <table>
                         <tr>
@@ -127,49 +82,8 @@
                 <br>
             </section>
         </div>
-
-
-        <!--   Footer     -->
-
-         <footer>
-            <div class="menuf">
-                <div class="bloc">
-                    <h2>À propos de nous</h2>
-                    <span>Rejoignez-nous sur les réseaux!</span>
-                </div>
-                <div class="bloc">
-                    <h2>CATEGORIES</h2>
-                    <span>
-                        <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="burger.html">Burger🍔</a></li>
-                            <li><a href="poulet.html">Poulet🍗</a></li>
-                            <li><a href="pizza.html">Pizza🍕</a></li>
-                            <li><a href="contact.html">Contact📞</a></li>
-                        </ul>
-                    </span>
-                </div>
-                <div class="bloc">
-                    <h2>Liens rapides</h2>
-                    <span>
-                        <ul>
-                            <li><a href="#">CGV</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">On recrute</a></li>
-                            <br>
-                            <li>Tél : +33 1 20 20 20 21 </li>
-                            <li>Email : CYSPOT@cyu.eu </li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
-            <div class="copyright">
-               <hr>
-                <p>© CY SPOT Tous droits réservés. | CY SPOT Webmaster</p>
-            </div>
-        </footer>
-
-
-
+        <?php
+        include_once("php/footer.php");
+        ?>
     </body>
 </html>
