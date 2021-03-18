@@ -64,13 +64,14 @@
                           <strong>E-mail</strong>
                           </label>
                           <input type="text" id="email" placeholder="Votre Email" name="email" required>
+                          <span id="email_manquant"></span>
                           <label for="psw">
                           <strong>Mot de passe</strong>
                           </label>
                           <input type="password" id="psw" placeholder="Votre Mot de passe" name="psw" required>
                           <span>Si vous n'avez pas de compte,<a href="inscription.html"> inscrivez-vous.</a></span>
                             <br><br/>
-                          <button type="submit" class="btn">Connecter</button>
+                          <button type="submit" class="btn" onclick="Verif_login()">Connecter</button>
                           <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
                         </form>
                       </div>

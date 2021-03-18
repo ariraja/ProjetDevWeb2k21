@@ -288,18 +288,21 @@ header{
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px;
+    overflow: hidden;
 }
 .new_burger{
     background-image: url(https://drive.google.com/uc?id=1djqf5xhXnnoXC4zljDQnA_QCMUNpbfra&authuser=rajaoferaa%40eisti.eu&usp=drive_fs);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px;
+    overflow: hidden;
 }
 .new_poulet{/*fils de new*/
     background-image: url(https://drive.google.com/uc?id=1-d442MFgtx2WZTFiPO2gDS37Edvt7rV5&authuser=rajaoferaa%40eisti.eu&usp=drive_fs);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 

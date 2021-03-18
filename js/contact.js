@@ -71,29 +71,35 @@ function valider() {//on va vérifier les champs nom, prénom et email
         missMail.textContent = 'Entrez votre mail !';
         missMail.style.color = 'red';
         Ok = false;
-        console.log("*");
     }
     else if (mailValid.test(mail.value) == false) { 
         missMail.textContent = "Le mail doit s'écrire comme sous cette forme : monmail@mail.com";
         missMail.style.color = "red";
         Ok = false;
-        console.log("**");
     }
     else{
         missMail.style.display = 'none';
-        console.log("***");
     }
     
-    //Validation de la date
+    //Validation de la date 
+    //TODO
     let d= document.getElementById("naissance_date");
     let missd = document.getElementById("date_manquant");
+    let dateValid = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
     if(d.valueAsDate==null){
         missd.textContent = 'Entrez votre date de naissance !';
         missd.style.color = 'red';
         Ok = false;
     }
+    else if(dateValid.test(d.value) == false){
+        missd.textContent = "Le date doit s'écrire comme sous cette forme : dd/mm/aaaa";
+        missd.style.color = "red";
+        Ok = false;
+        console.log(d.value);
+    }
     else{
         missd.style.display = 'none';
+        console.log(d.value);
     }
     
     //Validation de l'objet
@@ -150,3 +156,27 @@ function Verif(){
     console.log("end");
     return true;
 }
+
+
+function Verif_login(){
+   //Validation du mail
+    let mail = document.getElementById("email");
+    let missMail = document.getElementById("email_manquant");
+    let mailValid = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    if (mail.value.length==0) { //si champ nom vide
+        missMail.textContent = 'Entrez votre mail !';
+        missMail.style.color = 'red';
+        Ok = false;
+    }
+    else if (mailValid.test(mail.value) == false) { 
+        missMail.textContent = "L'email doit s'écrire comme sous cette forme : monmail@mail.com";
+        missMail.style.color = "red";
+        Ok = false;
+    }
+    else{
+        missMail.style.display = 'none';
+    }
+    return true;
+}
+
+
