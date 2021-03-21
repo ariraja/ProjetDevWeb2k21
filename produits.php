@@ -58,7 +58,7 @@ if($_GET['cat']=='pizza'){
                         echo "<tr>";
                         
                         echo "<th style='width:110px;'><img src=".$key['photo']."></th>";
-                        echo "<th style='width:110px;'>".key($key)."</th>";
+                        echo "<th style='width:110px;'>".$key['ref']."</th>";
                         echo "<th style='width:110px;'>".$key['nom']."</th>";
                         echo "<th style='width:110px;'>".$key['prix']."€</th>";
                         echo "<th style='width:110px;' class='stock'
