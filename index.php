@@ -1,3 +1,10 @@
+<?php
+    session_start();
+   include("php/varSession.inc.php");
+
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,7 +50,7 @@
                     <p>à 9.99€ TTC</p>
                     <p>Disponible jusqu'au 27/06/2021</p>
                     <p>Commandez sur notre site et vous faire livrer</p>
-                    <a href="pizza.php"><button type="button" class="btn-article">
+                    <a href="produits.php?cat=pizza"><button type="button" class="btn-article">
                         <span>Je commande</span></button></a>
                 </article>
                 <br><br/>
@@ -53,7 +60,7 @@
                     <p>à partir de 4.99€ TTC</p>
                     <p>5 burgers à découvrir</p>
                     <p>Commandez sur notre site et vous faire livrer</p>
-                    <a href="burger.php"><button type="button" class="btn-article">
+                    <a href="produits.php?cat=burger"><button type="button" class="btn-article">
                         <span>Je commande</span></button></a>
                 </article>
                 <br><br/>
@@ -63,7 +70,7 @@
                     <p>à partir de 6.99€ TTC</p>
                     <p>Poulets élevés en Farnce</p>
                     <p>Commandez sur notre site et vous faire livrer</p>
-                    <a href="poulet.php"><button type="button" class="btn-article">
+                    <a href="produits.php?cat=poulet"><button type="button" class="btn-article">
                         <span>Je commande</span></button></a>
                 </article>
             </section>

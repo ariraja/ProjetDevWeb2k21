@@ -1,9 +1,9 @@
 #menu_contextuel span{
-    top: 68px;
+    top: 65px;
 }
 #menu_contextuel input:checked ~ span{
     /*on va centrer la croix pour l'animation*/
-    top: 70px;
+    top: 67px;
     left: 64px;
 }
 
