@@ -36,4 +36,9 @@ $pizza=[
     'pizza05'=>['photo' => 'img/sicilienne.png', 'ref' => 'pizza05','nom'=>'Pizza Sicilienne','prix'=>13 , 'quantite' => 5]
 ];
 
+$tab_cat=[
+    'burger' => $burger,
+    'poulet' => $poulet,
+    'pizza' => $pizza
+];
 ?>

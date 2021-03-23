@@ -3,15 +3,15 @@ session_start();
 include("php/varSession.inc.php");
 
 if($_GET['cat']=='burger'){
-    $categorie=$burger;
+    $categorie=$tab_cat['burger'];
     $nom_categorie="Burger";
 }
 if($_GET['cat']=='poulet'){
-    $categorie=$poulet;
+    $categorie=$tab_cat['poulet'];
     $nom_categorie="Poulet";
 }
 if($_GET['cat']=='pizza'){
-    $categorie=$pizza;
+    $categorie=$tab_cat['pizza'];
     $nom_categorie="Pizza";
 }
 ?>
