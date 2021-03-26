@@ -1,5 +1,11 @@
 <?php
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../../phpmailer/src/Exception.php';
+require '../../phpmailer/src/PHPMailer.php';
+require '../../phpmailer/src/SMTP.php';
 
 
 if(!empty($_POST)){
@@ -74,23 +80,45 @@ if(!empty($_POST)){
 
 
 
-        if($ok){//si toout est bon
-            $_SESSION['contact_date']=date("Y-m-d");
+        if($ok){//si tout est bon
+            /*$_SESSION['contact_date']=date("Y-m-d");
             $_SESSION['nom']=$nom;
             $_SESSION['prenom']=$prenom;
             $_SESSION['mail']=$mail;
             $_SESSION['naissance_date']=$naiss;
             $_SESSION['objet']=$obj;
-            $_SESSION['contenu']=$contenu;
-            
-            ini_set( 'display_errors', 1 );
-            error_reporting( E_ALL );
-            
-            $destinataire='arihoela@gmail.com';
-            $header='From : cyspot@eisti.eu';
-            $message="Bonjour ".$nom." ".$prenom.", \n"."Vous êtes né le ".$naiss." et vous avez evoyé le message suivant : \n".$contenu;
-            
-            mail($destinataire, $obj, $message, $header);
+            $_SESSION['contenu']=$contenu;*/
+
+            //Instantiation and passing `true` enables exceptions
+            $mail = new PHPMailer(true);
+
+            try {
+                //Server settings
+                $mail->SMTPDebug = 0;                      
+                $mail->isSMTP();                                            
+                $mail->Host= 'smtp.gmail.com';                     
+                $mail->SMTPAuth   = true;                                   
+                $mail->Username   = 'webmastercyspot@gmail.com';                     
+                $mail->Password   = '0000abcd';                               
+                $mail->SMTPSecure = 'ssl'; // PHPMailer::ENCRYPTION_STARTTLS
+                $mail->Port = 465;  //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //Recipients
+                $mail->setFrom('ne-pas-rep@example.com', 'Webmaster CYSPOT');
+                $mail->addAddress('webmastercyspot@gmail.com', 'Moi'); 
+
+
+
+                //Content
+                $mail->isHTML(true);
+                $mail->Subject = $obj;
+                $mail->Body= 'Bonjour voici les données de : '.$nom.' '.$prenom.'.<br>'.'Né le '.$naiss.' et a envoyé le message suivant : <br>'.$contenu;
+
+                $mail->send();
+                echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
             header('Location: envoi.php');
             exit;
         }

@@ -41,4 +41,19 @@ $tab_cat=[
     'poulet' => $poulet,
     'pizza' => $pizza
 ];
+
+
+//transfer categories to JSON
+$produits_json= json_encode($tab_cat);
+$bytes = file_put_contents("data.json", $produits_json); 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Tableaux des utilisateurs*/
+
+/*$users=[
+    'id'='1' => ['login'='cyspot@cyu.eu', 'mdp'='123', 'nom'='Webmaster', 'panier'=[] ], 
+    'id'='2' => ['login'='ari@cyu.eu', 'mdp'='123', 'nom'='Ari', 'panier'=[] ], 
+    'id'='3' => ['login'='jo@cyu.eu', 'mdp'='123', 'nom'='Jo', 'panier'=[] ], 
+];*/
 ?>
