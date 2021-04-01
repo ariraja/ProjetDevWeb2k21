@@ -1,0 +1,42 @@
+.container table{
+    border-collapse: collapse;
+    width:100%;
+}
+
+.container table td,.container table th{
+    border:medium solid grey;
+    width:25%;
+    color:white;
+}
+
+th img{
+    height: 70px;
+    width: 70px;
+}
+
+th img {      
+    transition: transform 1s;      
+}
+th:hover img {     
+    transform: scale(1.2) rotate(0deg) ;
+    transition: transform 3s;    
+}
+
+
+#cache-btn,#rajoute-btn{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:2em;
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: calibri;
+    color:#ffffff;
+    background-color: #f44336;
+    text-align:center;
+}
+#cache-btn:hover,#rajoute-btn:hover{
+ border-color: rgba(255,255,255,1);
+}
