@@ -1,0 +1,126 @@
+#menu_contextuel span{
+    top: 65px;
+}
+#menu_contextuel input:checked ~ span{
+    /*on va centrer la croix pour l'animation*/
+    top: 67px;
+    left: 64px;
+}
+
+/* SECTION */
+.main-content{
+    border-top: 2px solid #fff ;
+}
+.form-section{
+    background-color: #ea272d;
+    box-shadow:2px 2px 12px rgba(0,0,0,0.20);
+    color:white;
+    float: right;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-family:calibri;
+}
+
+/* Positionnez la forme Popup */
+.login-popup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background : red;
+}
+/* Masquez la forme Popup */
+.form-popup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top:5%;
+    transform: translate(-45%,5%);
+    border: 2px solid #666;
+    z-index: 9;
+}
+/* Styles pour le conteneur de forme */
+.form-container {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+}
+/* Largeur complète pour les champs de saisie */
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #eee;
+}
+/*Quand les entrées sont concentrées, faites quelque chose */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+/* Stylez le bouton de connexion*/
+.form-container .btn {
+    background-color: #8ebf42;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+/* Stylez le bouton pour annuler */
+.form-container .cancel {
+    background-color: #cc0000;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    z-index: 1
+
+}
+
+.form-style{
+    display: block;
+    background-color: dimgrey;
+    border-radius: 20px;
+    width: 70%;
+    margin-bottom: 30px;
+    margin-left: 150px;
+}
+
+.form-style input[type=text],.form-style input[type=email] {
+background: none;
+  border: none;
+  border-bottom: solid 2px #ffffff;
+    color: #ffffff;
+}
+
+.form-style input[type=text]::placeholder,.form-style input[type=email]::placeholder,#contenu::placeholder{
+    color: #ffffff;
+    opacity: 0.3;
+}
+#contenu{
+    background: none;
+    border: solid 2px #ffffff;
+    color: #ffffff;
+}
+
+
+
+.submit{
+    width: 120px;
+    height: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background: #f44336;
+    border-radius: 6px;
+}
+
