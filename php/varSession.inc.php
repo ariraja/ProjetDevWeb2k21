@@ -3,11 +3,17 @@ $_SESSION['user']="visiteur";
 $_SESSION['id']=rand(0,50);
 
 
+$_SESSION['connecter']=false;
+if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])  ) {//on vérifie si on est connecté ou pas
+    $_SESSION['connecter']=true;
+}
+
+
 //$_SESSION=session_id();
 
 /* les tableaux de chaque catégorie */
 
-$burger=[
+/*$burger=[
     'burger01'=>['photo' => 'img/burger_hamburger.jpg','ref' => 'burger01', 'nom'=>'Hamburger','prix'=>5 , 'quantite' => 10],
     
     'burger02'=>['photo' => 'img/cheeseburger.png', 'ref' => 'burger02', 'nom'=>'Cheeseburger','prix'=>5 , 'quantite' => 8],
@@ -45,15 +51,50 @@ $tab_cat=[
 
 //transfer categories to JSON
 $produits_json= json_encode($tab_cat);
-$bytes = file_put_contents("data.json", $produits_json); 
+$bytes = file_put_contents("data.json", $produits_json); */
 
+//import categories from JSON
+$json_code=file_get_contents("data/categorie.json");
+$json_code=str_replace('}, ]',"} ]",$json_code);
+$_SESSION['categorie']=json_decode($json_code);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*Tableaux des utilisateurs*/
 
-/*$users=[
-    'id'='1' => ['login'='cyspot@cyu.eu', 'mdp'='123', 'nom'='Webmaster', 'panier'=[] ], 
-    'id'='2' => ['login'='ari@cyu.eu', 'mdp'='123', 'nom'='Ari', 'panier'=[] ], 
-    'id'='3' => ['login'='jo@cyu.eu', 'mdp'='123', 'nom'='Jo', 'panier'=[] ], 
+/*TODO
+$users=[
+    '1' => ['login' => 'cyspot@cyu.eu', 'mdp' => '123', 'nom' => 'Webmaster', 'panier' => [] ], 
+    '2' => ['login' => 'ari@cyu.eu', 'mdp' => '123', 'nom' => 'Ari', 'panier' => [] ], 
+    '3' => ['login' => 'jo@cyu.eu', 'mdp' => '123', 'nom' => 'Jo', 'panier' => ['alibava','okkk' ]]
 ];*/
+
+
+//$users=[
+//     ['login' => 'cyspot@cyu.eu', 'mdp' => '123', 'nom' => 'Webmaster'], 
+//     ['login' => 'ari@cyu.eu', 'mdp' => '123', 'nom' => 'Ari'], 
+//     ['login' => 'jo@cyu.eu', 'mdp' => '123', 'nom' => 'Jo']
+//];
+//$row='';
+//foreach($users as $id){
+//    foreach($id as $key => $value){
+//        $row .=$value.",";
+//    }
+//     $row.="\n";
+//}
+//$file= fopen("user.txt","w+");//création d'un fichier txt contenant tableau
+//fwrite($file,$row);
+//fclose($file);
+
+
+$user=[];//tableau d'utilisateur crée à partir du fichier txt
+$user_txt = explode("\n",file_get_contents("data/user.txt"));//ligne
+for($i=0;$i<count($user_txt)-1;$i++){
+    $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
+    $user[$i]['login']=$info_txt[0];
+    $user[$i]['mdp']=$info_txt[1];
+    $user[$i]['nom']=$info_txt[2];
+}
+//var_dump($user);
+
+
 ?>

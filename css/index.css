@@ -59,6 +59,39 @@ header{
     font-weight: bold;
 }
 
+/*Tableau déroulant Mon profil*/
+#menu-deroulant, #menu-deroulant ul {
+    display: flex;
+    list-style: none;
+}
+#menu-deroulant {
+/* on centre le menu dans la page */
+    text-align: center;
+}
+#menu-deroulant li {
+/* on place les liens du menu horizontalement */
+    display: block;
+}
+#menu-deroulant ul li {
+/* on enlève ce comportement pour les liens du sous menu */
+   display: none;
+}
+
+#menu-deroulant ul {
+    display: none;
+   
+/* on cache les sous menus complètement sur la gauche */
+    z-index: 1000;
+}
+#menu-deroulant li:hover ul, #menu-deroulant li:hover ul li {
+/* Au survol des li du menu on replace les sous menus */
+    display: contents;
+    display: block;
+     position: relative;
+    left: auto;
+}
+
+
 /** Contenu principal **/
 .menu_gauche{
     width: 15%;
@@ -241,6 +274,8 @@ header{
     z-index: 1
 
 }
+
+
 
 
 
@@ -434,6 +469,9 @@ footer{
     font-family:calibri;
     color:#B9B9B9;
 }
+
+
+
 
 
 /*RESPONSIVE à faire à la fin*/

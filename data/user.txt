@@ -1,0 +1,3 @@
+cyspot@cyu.eu,123,Webmaster,
+ari@cyu.eu,456,Ari,
+jo@cyu.eu,789,Jo,

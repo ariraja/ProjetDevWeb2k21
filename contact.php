@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("php/varSession.inc.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -8,7 +9,7 @@ require '../../phpmailer/src/PHPMailer.php';
 require '../../phpmailer/src/SMTP.php';
 
 
-if(!empty($_POST)){
+if(!empty($_POST['submit'])){
     $ok=true;
 
     if(isset($_POST['submit'])){
@@ -89,7 +90,6 @@ if(!empty($_POST)){
             $_SESSION['objet']=$obj;
             $_SESSION['contenu']=$contenu;*/
 
-            //Instantiation and passing `true` enables exceptions
             $mail = new PHPMailer(true);
 
             try {
@@ -245,7 +245,7 @@ if(!empty($_POST)){
                         ?>
                         <br><br/>
 
-                        <input type="submit" name="submit" id="submit" class="submit" value="Envoyer">
+                        <input type="submit" name="submit" id="submit" class="submit" value="Envoyer" onclick="Verif()">
                         <br><br/>
                     </form>
                 </div>

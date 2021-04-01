@@ -3,15 +3,15 @@ session_start();
 include("php/varSession.inc.php");
 
 if($_GET['cat']=='burger'){
-    $categorie=$tab_cat['burger'];
+    $categorie=$_SESSION['categorie']->burger;
     $nom_categorie="Burger";
 }
 if($_GET['cat']=='poulet'){
-    $categorie=$tab_cat['poulet'];
+    $categorie=$_SESSION['categorie']->poulet;
     $nom_categorie="Poulet";
 }
 if($_GET['cat']=='pizza'){
-    $categorie=$tab_cat['pizza'];
+    $categorie=$_SESSION['categorie']->pizza;
     $nom_categorie="Pizza";
 }
 ?>
@@ -57,12 +57,12 @@ if($_GET['cat']=='pizza'){
                     foreach($categorie as $key){
                         echo "<tr>";
                         
-                        echo "<th style='width:110px;'><img src=".$key['photo']."></th>";
-                        echo "<th style='width:110px;'>".$key['ref']."</th>";
-                        echo "<th style='width:110px;'>".$key['nom']."</th>";
-                        echo "<th style='width:110px;'>".$key['prix']."€</th>";
+                        echo "<th style='width:110px;'><img src=".$key->photo."></th>";
+                        echo "<th style='width:110px;'>".$key->ref."</th>";
+                        echo "<th style='width:110px;'>".$key->nom."</th>";
+                        echo "<th style='width:110px;'>".$key->prix."€</th>";
                         echo "<th style='width:110px;' class='stock'
-                            >".$key['quantite']."</th>";
+                            >".$key->quantite."</th>";
                         
                         echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'> </th>";
                         
