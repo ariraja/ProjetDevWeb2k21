@@ -87,12 +87,13 @@ $users=[
 
 
 $user=[];//tableau d'utilisateur crée à partir du fichier txt
-$user_txt = explode("\n",file_get_contents("data/user.txt"));//ligne
+$user_txt = explode(";",file_get_contents("data/user.txt"));//ligne
 for($i=0;$i<count($user_txt)-1;$i++){
     $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
     $user[$i]['login']=$info_txt[0];
     $user[$i]['mdp']=$info_txt[1];
     $user[$i]['nom']=$info_txt[2];
+    $user[$i]['panier']=$info_txt[3];
 }
 //var_dump($user);
 

@@ -95,7 +95,7 @@
     margin-left: 150px;
 }
 
-.form-style input[type=text],.form-style input[type=email] {
+.form-style input[type=text],.form-style input[type=email],.form-style input[type=password] {
 background: none;
   border: none;
   border-bottom: solid 2px #ffffff;

@@ -21,7 +21,7 @@ if(!empty($_POST)){
         //Vérification mdp
         if(empty($mdp)){
             $ok=false;
-            $err_mdp="Entrez votre email !";
+            $err_mdp="Entrez votre mot de passe !";
         }
 
 
@@ -58,7 +58,7 @@ if(!empty($_POST)){
                     $_SESSION['user_nom']=$u['nom'];
                     $_SESSION['user_mdp']=$mdp;
                     $_SESSION['connecter']=true;
-                    $_SESSION['panier']=[];
+                    $_SESSION['panier']=$u['panier'];
                     exit;
                 }
             }

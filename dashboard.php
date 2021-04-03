@@ -1,5 +1,6 @@
 <?php
     session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +36,7 @@
                 ?>
 
                 <div class="form-style">
-                    <h1>Bonjour <?php echo $_SESSION['user_nom'];?> ! Vous etes connecté !</h1>
+                    <h1>Bonjour <?php echo $_SESSION['user_nom']?> ! Vous êtes connecté !</h1>
                 </div>
             </section>
         </div>
