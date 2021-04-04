@@ -28,7 +28,5 @@ function Verif_login(){
     else{
         missMail.style.display = 'none';
     }
-    
-    
     return true;
 }

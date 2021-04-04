@@ -93,9 +93,10 @@ for($i=0;$i<count($user_txt)-1;$i++){
     $user[$i]['login']=$info_txt[0];
     $user[$i]['mdp']=$info_txt[1];
     $user[$i]['nom']=$info_txt[2];
-    $user[$i]['panier']=$info_txt[3];
+    //$user[$i]['panier']=$info_txt[3];
+    $user[$i]['panier']=[];
 }
-//var_dump($user);
+var_dump($user);
 
 
 ?>

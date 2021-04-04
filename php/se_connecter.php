@@ -27,7 +27,8 @@ if(!empty($_POST)){
 
         //vérif bdd
         for($i=0;$i<count($user_txt)-1;$i++){
-            if(in_array($email,$user[$i])){
+            if($email==$user[$i]['login']){
+                $ok=true;
                 break;
             }
             else{
@@ -49,7 +50,7 @@ if(!empty($_POST)){
 
         
         //si email et mdp existent
-        if($ok){
+        if($ok==true){
             foreach($user as $u){
                 if( ($u['login']==$email) && ($u['mdp']==$mdp)){
                     header('Location: dashboard.php');

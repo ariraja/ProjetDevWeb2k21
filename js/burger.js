@@ -134,6 +134,7 @@ function moins5(){
     }
 }
 
+
 function suppStock(){
     for(var i=0;i<5;i++){
         st=document.getElementsByClassName("stock")[i];
