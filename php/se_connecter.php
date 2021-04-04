@@ -26,9 +26,19 @@ if(!empty($_POST)){
 
 
         //vérif bdd
-        for($i=0;$i<count($user_txt)-1;$i++){
+       /* for($i=0;$i<count($user);$i++){
             if($email==$user[$i]['login']){
+                break;
+            }
+            else{
+                $ok=false;
+                $err_email="Email inexistant !";
+            }
+        }*/
+        for($i=0;$i<count($user);$i++){
+            if(in_array($email,$user[$i])){
                 $ok=true;
+                $err_email="";
                 break;
             }
             else{
@@ -36,9 +46,11 @@ if(!empty($_POST)){
                 $err_email="Email inexistant !";
             }
         }
-        for($i=0;$i<count($user_txt)-1;$i++){
-            if($mdp==$user[$i]['mdp']){
+        
+        for($i=0;$i<count($user);$i++){
+            if(in_array($mdp,$user[$i])){
                 $ok=true;
+                $err_mdp="";
                 break;
             }
             else{

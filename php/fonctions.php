@@ -22,11 +22,10 @@ function add_panier(numero){
     xmlhttp.send();
 }
     
-function delete_panier(ref){
+function delete_panier(numero){
     var xmlhttp = new XMLHttpRequest();
-    
-    let url="commander.php?ref="+ref;
-    console.log(url);
+    let ref=document.getElementById("ref"+numero);
+    let url="commander.php?ref="+ref.innerHTML;
     xmlhttp.open("GET",url,true);
     xmlhttp.send();
 }
@@ -42,6 +41,7 @@ function delete_panier(ref){
     }
 
     function supp_panier($ref){
+        echo "je vais supp";
         foreach($_SESSION['panier'] as $art){
             if(in_array($ref,$art)){
                 unset($art['photo']);

@@ -1,13 +1,16 @@
 <?php
 session_start();
-include("php/varSession.inc.php");//utile pour l'ajout d'utilisateurs après
+include_once("php/varSession.inc.php");//utile pour l'ajout d'utilisateurs après
+
 
 
 $_SESSION['connecter']=false;
+
 if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
     header('Location: dashboard.php');
    exit;
 } 
+
 
 
 if(!empty($_POST['sinscrire'])){
@@ -46,16 +49,16 @@ if(!empty($_POST['sinscrire'])){
             $err_mdp="Entrez votre mot de passe !";
         }
 
-
+       
         //vérif bdd
-        for($i=0;$i<count($user_txt)-1;$i++){
+        for($i=0;$i<count($user);$i++){
             if($nom==$user[$i]['nom']){
                 $ok=false;
                 $err_nom="Nom existant !<br>";
                 break;
             }
         }
-        for($i=0;$i<count($user_txt)-1;$i++){
+        for($i=0;$i<count($user);$i++){
             if(in_array($email,$user[$i])){
                 $ok=false;
                 $err_email="Email existant !";
@@ -73,7 +76,7 @@ if(!empty($_POST['sinscrire'])){
             fwrite($file,$row);
             fclose($file);
             //màj bdd
-            $user_txt = explode("\n",file_get_contents("data/user.txt"));//ligne
+            $user_txt = explode(";\n",file_get_contents("data/user.txt"));//ligne
             for($i=0;$i<count($user_txt)-1;$i++){
                 $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
                 $user[$i]['login']=$info_txt[0];

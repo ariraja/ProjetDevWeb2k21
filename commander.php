@@ -68,7 +68,7 @@ else if(isset($_GET['ref'])){
 
 
                         /*echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'></th>";*/
-                        echo "<th><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier('".$article['ref']."')'></th>";
+                        echo "<th><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'></th>";
 
                         echo "</tr>";
 

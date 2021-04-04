@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("php/varSession.inc.php");
+include_once("php/varSession.inc.php");
 
 if($_GET['cat']=='burger'){
     $categorie=$_SESSION['categorie']->burger;
