@@ -28,6 +28,12 @@ if($_GET['cat']=='pizza'){
                                                  5x15" href="img/miniature.png">
         <script type="text/javascript" src="js/burger.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <?php 
+            if($_SESSION['connecter']==true){
+                require_once('php/fonctions.php'); 
+            }
+    
+        ?>
     </head>
     <body>
         <?php
@@ -51,30 +57,39 @@ if($_GET['cat']=='pizza'){
                     ?>
 
                     <?php
-                  
+
                     echo "<table>";
                     $i=1;
                     foreach($categorie as $key){
                         echo "<tr>";
-                        
-                        echo "<th style='width:110px;'><img src=".$key->photo."></th>";
-                        echo "<th style='width:110px;'>".$key->ref."</th>";
-                        echo "<th style='width:110px;'>".$key->nom."</th>";
-                        echo "<th style='width:110px;'>".$key->prix."€</th>";
+
+                        echo "<th style='width:110px;'><img id='pic".$i."' src=".$key->photo."></th>";
+                        echo "<th style='width:110px;' id='ref".$i."'>".$key->ref."</th>";
+                        echo "<th style='width:110px;' id='nom_produit".$i."'>".$key->nom."</th>";
+                        echo "<th style='width:110px;' id='prix".$i."'>".$key->prix."€</th>";
                         echo "<th style='width:110px;' class='stock'
                             >".$key->quantite."</th>";
-                        
-                        echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'> </th>";
-                        
+
+                        /*if($_SESSION['connecter']==true){
+                            echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><a href='produits.php?cat=burger&pic=".$key->photo."&ref=".$key->ref."&nom=".$key->nom."&prix=".$key->prix."'><input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'><a/> </th>";
+                        }*/
+                        if($_SESSION['connecter']==true){
+                            echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'></th>";
+                        }
+                        else{
+                            echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'></th>";
+                        }
+
                         echo "</tr>";
-                        $i++;
-                    }
-                    
+                            $i++;
+                        }
+
                     echo "</table>";
-                    
+
                     ?>
 
                 </div>
+
                 <br>
                 <button onclick="suppStock()" id="cache-btn">Cacher</button>
                 <button onclick="rajouteStock()" style="display: none;" id="rajoute-btn">Dévoiler</button>
@@ -85,6 +100,5 @@ if($_GET['cat']=='pizza'){
         <?php
         include_once("php/footer.php");
         ?>
-
     </body>
 </html>

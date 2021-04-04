@@ -90,7 +90,6 @@ if(!empty($_POST['sinscrire'])){
                     $_SESSION['user_mdp']=$mdp;
                     $_SESSION['connecter']=true;
                     $_SESSION['panier']=$u['panier'];
-                    
                 }
             }
             header('Location: dashboard.php');
