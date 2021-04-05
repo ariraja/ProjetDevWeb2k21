@@ -25,7 +25,6 @@ function delete_panier(numero){
     let url="deletePanier.php?ref="+ref.innerHTML;
     xmlhttp.open("GET",url,true);
     xmlhttp.send();
-    console.log(url);
 }
     
     
