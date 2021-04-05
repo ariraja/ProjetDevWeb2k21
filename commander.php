@@ -1,8 +1,28 @@
 <?php
 session_start();
+include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 
 require_once('php/fonctions.php');
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte']) ){
+    
+    
+   /* $file= fopen("data/user.txt","w");//ajout produit dans le fichier
+    
+     
+    $content_txt = file_get_contents('data/user.txt');
+    $find = '[]';
+    $pos = strpos($content_txt, $find);
+    if ($pos === FALSE) {
+        echo "La chaîne n'a pas été trouvée";
+    } else {
+        echo "La chaîne a été trouvée";
+    }
+    
+    $maj=$email.','.$mdp.','.$nom.','.'[]'.";\n";
+    fwrite($file,$maj);
+    fclose($file);*/
+    
+    
     $pic=$_GET['pic'];
     $ref=$_GET['ref'];
     $nom=$_GET['nom'];

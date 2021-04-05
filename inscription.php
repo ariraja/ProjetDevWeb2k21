@@ -12,7 +12,6 @@ if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un
 } 
 
 
-
 if(!empty($_POST['sinscrire'])){
     $ok=true;
 
@@ -69,22 +68,20 @@ if(!empty($_POST['sinscrire'])){
 
         //si email et mdp existent
         if($ok){
-            //$panier_vide= [];
-            //array_push($user[$i],$email,$mdp,$panier_vide);
             $file= fopen("data/user.txt","a");//ajout utilisateur dans le fichier
             $row=$email.','.$mdp.','.$nom.','.'[]'.";\n";
             fwrite($file,$row);
             fclose($file);
             //màj bdd
             $user_txt = explode(";\n",file_get_contents("data/user.txt"));//ligne
-            for($i=0;$i<count($user_txt)-1;$i++){
+            for($i=0;$i<count($user);$i++){
                 $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
                 $user[$i]['login']=$info_txt[0];
                 $user[$i]['mdp']=$info_txt[1];
                 $user[$i]['nom']=$info_txt[2];
                 $user[$i]['panier']=$info_txt[3];
             }
-
+            //var_dump($user);
             foreach($user as $u){
                 if( ($u['login']==$email) && ($u['mdp']==$mdp)){
                     $_SESSION['user_id']=$i;

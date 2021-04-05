@@ -1,5 +1,4 @@
 <?php
-
 if(!empty($_POST)){
     $ok=true;
 
@@ -23,8 +22,7 @@ if(!empty($_POST)){
             $ok=false;
             $err_mdp="Entrez votre mot de passe !";
         }
-
-
+        
         //vérif bdd
     
         for($i=0;$i<count($user);$i++){
@@ -51,19 +49,17 @@ if(!empty($_POST)){
             }
 
         }
-
-        
         //si email et mdp existent
         if($ok==true){
             foreach($user as $u){
                 if( ($u['login']==$email) && ($u['mdp']==$mdp)){
-                    header('Location: dashboard.php');
                     $_SESSION['user_id']=$i;
                     $_SESSION['user_email']=$email;
                     $_SESSION['user_nom']=$u['nom'];
                     $_SESSION['user_mdp']=$mdp;
                     $_SESSION['connecter']=true;
                     $_SESSION['panier']=$u['panier'];
+                    header('Location: dashboard.php');
                     exit;
                 }
             }
@@ -72,7 +68,6 @@ if(!empty($_POST)){
         }
     }
 }
-
 ?>
 <div class="overlay"></div>
 <div class="login-popup">
