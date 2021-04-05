@@ -96,7 +96,9 @@ for($i=0;$i<count($user_txt)-1;$i++){
     //$user[$i]['panier']=$info_txt[3];
     $user[$i]['panier']=[];
 }
-var_dump($user);
+/*var_dump($user);*/
+/*var_dump($info_txt[0]);
+var_dump($info_txt[1]);*/
 
 
 ?>
