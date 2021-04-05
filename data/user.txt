@@ -3,3 +3,6 @@ ari@cyu.eu,456,Ari,[];
 jo@cyu.eu,789,Jo,[];
 
 test@mail.com,000,test,[];
+jo78@cyu.eu,123,Jo78,[];
+jo78@cyu.eu,123,Jo78,[];
+jo@cyu.eu,789,jo,[];

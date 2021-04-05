@@ -1,7 +1,8 @@
 <?php
     session_start();
     //var_dump($user);
-    var_dump($_SESSION);
+    //var_dump($_SESSION);
+    $_SESSION['connecter']=true;
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,4 +1,15 @@
 <!--   HEADER    -->
+
+<?php/*
+
+            if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
+            $_SESSION['connecter']==true;
+            //echo('123');
+            exit;
+            }*/
+
+?>
+
 <header>
     <!-- Menu horizontal -->
     <nav class="menuh">
@@ -11,17 +22,19 @@
             <li><a href="contact.php">Contact📞</a></li>
         </ul>
         <?php
+        
         if($_SESSION['connecter']==true){
             echo "
             <ul id='menu-deroulant'>
                 <li><a href='commander.php' id='panier'>🛒</a></li>
                 <li class='deroulant'><a href='dashboard.php'>Mon profil &ensp;</a>
                     <ul class='sous'>
-                            <li></li>
-                            <li><a href='dashboard.php'>Tableau de bord</a></li>
-                            <br>
-                            <li><a href='deconnexion.php'>Déconnexion</a></li>
-                            <br>
+                        <li><li>
+                        <li style='color:white;font-family: calibri;'>Bonjour ".$_SESSION['user_nom']."</li>
+                        <li><a href='dashboard.php'>Tableau de bord</a></li>
+                        <br>
+                        <li><a href='deconnexion.php'>Déconnexion</a></li>
+                        <br>
                     </ul>
                 </li>
             </ul>";
@@ -29,6 +42,9 @@
         else{
             echo "<div><a href='#' id='panier' onclick='openForm()'>Commande🛒</a></div>";
         }
+        /*if($_SESSION['connecter']==false){
+            echo('1');
+        }*/
         ?>
     </nav>
 </header>
