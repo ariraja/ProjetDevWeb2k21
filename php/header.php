@@ -1,12 +1,10 @@
 <!--   HEADER    -->
 
-<?php/*
+<?php
 
-            if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
-            $_SESSION['connecter']==true;
-            //echo('123');
-            exit;
-            }*/
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
+    $_SESSION['connecter']=true;
+}
 
 ?>
 
@@ -22,7 +20,7 @@
             <li><a href="contact.php">Contact📞</a></li>
         </ul>
         <?php
-        
+
         if($_SESSION['connecter']==true){
             echo "
             <ul id='menu-deroulant'>

@@ -4,8 +4,8 @@ $_SESSION['id']=rand(0,50);
 
 
 $_SESSION['connecter']=false;
-if(isset($_SESSION['user_id']) || isset($_SESSION['user_email']) ) {//on vérifie si on est connecté ou pas
-$_SESSION['connecter']=true;
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])  ) {//on vérifie si on est connecté ou pas
+    $_SESSION['connecter']=true;
 }
 
 //$_SESSION=session_id();
@@ -93,6 +93,7 @@ $user[$i]['panier']=$info_txt[3];
 if($user[$i]['panier']=="[]"){
 $user[$i]['panier']=[];
 }
+
 }
 
 //var_dump($user);
