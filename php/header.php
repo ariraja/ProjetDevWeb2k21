@@ -15,12 +15,12 @@
             echo "
             <ul id='menu-deroulant'>
                 <li><a href='commander.php' id='panier'>🛒</a></li>
-                <li class='deroulant'><a href='#'>Mon profil &ensp;</a>
+                <li class='deroulant'><a href='dashboard.php'>Mon profil &ensp;</a>
                     <ul class='sous'>
                             <li></li>
-                            <li><a href='#'>Tableau de bord</a></li>
+                            <li><a href='dashboard.php'>Tableau de bord</a></li>
                             <br>
-                            <li><a href='#'>Commande</a></li>
+                            <li><a href='deconnexion.php'>Déconnexion</a></li>
                             <br>
                     </ul>
                 </li>

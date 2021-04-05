@@ -66,7 +66,7 @@ if(!empty($_POST['sinscrire'])){
         }
 
 
-        //si email et mdp existent
+        //si email et mdp valides
         if($ok){
             $file= fopen("data/user.txt","a");//ajout utilisateur dans le fichier
             $row=$email.','.$mdp.','.$nom.','.'[]'.";\n";
@@ -81,7 +81,7 @@ if(!empty($_POST['sinscrire'])){
                 $user[$i]['nom']=$info_txt[2];
                 $user[$i]['panier']=$info_txt[3];
             }
-            //var_dump($user);
+
             foreach($user as $u){
                 if( ($u['login']==$email) && ($u['mdp']==$mdp)){
                     $_SESSION['user_id']=$i;
@@ -90,10 +90,13 @@ if(!empty($_POST['sinscrire'])){
                     $_SESSION['user_mdp']=$mdp;
                     $_SESSION['connecter']=true;
                     $_SESSION['panier']=$u['panier'];
+                    break;
                 }
             }
+             $_SESSION['user_nom']=$nom;
             header('Location: dashboard.php');
             exit;
+           
         }
     }
 }
