@@ -1,13 +1,16 @@
 <?php
 session_start();
-include("php/varSession.inc.php");//utile pour l'ajout d'utilisateurs après
+include_once("php/varSession.inc.php");//utile pour l'ajout d'utilisateurs après
+
 
 
 $_SESSION['connecter']=false;
+
 if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
     header('Location: dashboard.php');
    exit;
 } 
+
 
 
 if(!empty($_POST['sinscrire'])){
@@ -23,42 +26,42 @@ if(!empty($_POST['sinscrire'])){
         //Vérification nom
         if(empty($nom)){
             $ok=false;
-            $err_nom="Entrez votre nom !";
+            $erreur_nom="Entrez votre nom !";
         }
         else if(!ctype_alnum($nom)){
             $ok=false;
-            $err_nom="Le nom ne doit pas contenir de caractères spéciaux !";
+            $erreur_nom="Le nom ne doit pas contenir de caractères spéciaux !";
         }
 
         //Vérification mail
         if(empty($email)){
             $ok=false;
-            $err_email="Entrez votre email !";
+            $erreur_email="Entrez votre email !";
         }
         else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
             $ok=false;
-            $err_email="Le mail doit s'écrire comme sous cette forme : monmail@mail.com";
+            $erreur_email="Le mail doit s'écrire comme sous cette forme : monmail@mail.com";
         }
 
         //Vérification mdp
         if(empty($mdp)){
             $ok=false;
-            $err_mdp="Entrez votre mot de passe !";
+            $erreur_mdp="Entrez votre mot de passe !";
         }
 
-
+       
         //vérif bdd
-        for($i=0;$i<count($user_txt)-1;$i++){
+        for($i=0;$i<count($user);$i++){
             if($nom==$user[$i]['nom']){
                 $ok=false;
-                $err_nom="Nom existant !<br>";
+                $erreur_nom="Nom existant !<br>";
                 break;
             }
         }
-        for($i=0;$i<count($user_txt)-1;$i++){
+        for($i=0;$i<count($user);$i++){
             if(in_array($email,$user[$i])){
                 $ok=false;
-                $err_email="Email existant !";
+                $erreur_email="Email existant !";
                 break;
             }
         }
@@ -73,7 +76,7 @@ if(!empty($_POST['sinscrire'])){
             fwrite($file,$row);
             fclose($file);
             //màj bdd
-            $user_txt = explode("\n",file_get_contents("data/user.txt"));//ligne
+            $user_txt = explode(";\n",file_get_contents("data/user.txt"));//ligne
             for($i=0;$i<count($user_txt)-1;$i++){
                 $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
                 $user[$i]['login']=$info_txt[0];
@@ -140,8 +143,8 @@ if(!empty($_POST['sinscrire'])){
                         <label for="nom">Nom :</label>
                         <input type="text" name="new_nom" id="new_nom" placeholder="Entrez vote nom">
                         <?php
-                        if(isset($err_nom)){
-                            echo"<span style='color:red'>".$err_nom."</span>";
+                        if(isset($erreur_nom)){
+                            echo"<span style='color:red'>".$erreur_nom."</span>";
 
                         }
 
@@ -151,8 +154,8 @@ if(!empty($_POST['sinscrire'])){
                         <label for="email">Email :</label>
                         <input type="email" name="new_mail" id="new_mail" placeholder="Entrez vote email">
                         <?php
-                        if(isset($err_email)){
-                            echo"<span style='color:red'>".$err_email."</span>";
+                        if(isset($erreur_email)){
+                            echo"<span style='color:red'>".$erreur_email."</span>";
                         }
 
                         ?>
@@ -161,8 +164,8 @@ if(!empty($_POST['sinscrire'])){
                         <label for="email">Mot de passe :</label>
                         <input type="password" name="new_mdp" id="new_mdp" placeholder="Entrez vote mot de passe">
                         <?php
-                        if(isset($err_mdp)){
-                            echo"<span style='color:red'>".$err_mdp."</span>";
+                        if(isset($erreur_mdp)){
+                            echo"<span style='color:red'>".$erreur_mdp."</span>";
                         }
 
                         ?>

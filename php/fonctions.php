@@ -1,5 +1,3 @@
-
-
 <script type="text/javascript">
     
 //ajout au panier 
@@ -17,16 +15,14 @@ function add_panier(numero){
     if(quantite.value==0){return false;}
     
     let url="commander.php?pic="+pic+"&ref="+ref.innerHTML+"&nom="+nom.innerHTML+"&prix="+prix.innerHTML+"&qte="+quantite.value;
-    console.log(url);
     xmlhttp.open("GET",url,true);
     xmlhttp.send();
 }
     
-function delete_panier(ref){
+function delete_panier(numero){
     var xmlhttp = new XMLHttpRequest();
-    
-    let url="commander.php?ref="+ref;
-    console.log(url);
+    let ref=document.getElementById("ref"+numero);
+    let url="deletePanier.php?ref="+ref.innerHTML;
     xmlhttp.open("GET",url,true);
     xmlhttp.send();
 }
@@ -44,15 +40,10 @@ function delete_panier(ref){
     function supp_panier($ref){
         foreach($_SESSION['panier'] as $art){
             if(in_array($ref,$art)){
-                unset($art['photo']);
-                unset($art['ref']);
-                unset($art['nom']);
-                unset($art['prix']);
-                unset($art['qte']);
+              unset($_SESSION['panier'][array_search($art,$_SESSION['panier'])]);//on supprime l'article
             }
         }
+         sort($_SESSION['panier']);//remet indice dans l'ordre
     }
-
-
-    var_dump($_SESSION['panier']);
+    //var_dump($_SESSION['panier']);
 ?>
