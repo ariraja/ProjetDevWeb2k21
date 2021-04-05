@@ -82,14 +82,6 @@ if(!empty($_POST['submit'])){
 
 
         if($ok){//si tout est bon
-            /*$_SESSION['contact_date']=date("Y-m-d");
-            $_SESSION['nom']=$nom;
-            $_SESSION['prenom']=$prenom;
-            $_SESSION['mail']=$mail;
-            $_SESSION['naissance_date']=$naiss;
-            $_SESSION['objet']=$obj;
-            $_SESSION['contenu']=$contenu;*/
-
             $mail = new PHPMailer(true);
 
             try {

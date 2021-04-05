@@ -5,25 +5,10 @@ include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 
 include_once('php/fonctions.php');
 
+//var_dump($_SESSION);
+//var_dump($user);
+
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte']) ){
-    
-    
-   /* $file= fopen("data/user.txt","w");//ajout produit dans le fichier
-    
-     
-    $content_txt = file_get_contents('data/user.txt');
-    $find = '[]';
-    $pos = strpos($content_txt, $find);
-    if ($pos === FALSE) {
-        echo "La chaîne n'a pas été trouvée";
-    } else {
-        echo "La chaîne a été trouvée";
-    }
-    
-    $maj=$email.','.$mdp.','.$nom.','.'[]'.";\n";
-    fwrite($file,$maj);
-    fclose($file);*/
-    
     
     $pic=$_GET['pic'];
     $ref=$_GET['ref'];
@@ -32,6 +17,29 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
     $qte=$_GET['qte'];
 
     ajout_panier($pic,$ref,$nom,$prix,$qte);
+    
+    //test save panier
+    
+  /*  $file= fopen("data/user.txt","r+");//ajout produit dans le fichier
+    $content_txt = file_get_contents('data/user.txt');
+    $find = '[';
+    $user_txt = explode(";",trim($content_txt," \n\r\t\v\0"));
+    
+    foreach($user as $u){
+        if(in_array($_SESSION['user_id']),$u){
+            implode('|',$u['panier']);
+        }
+    }*/
+    
+    /*foreach($user_txt as $ut){
+        $pos = strpos($ut, $find);//position du panier pour chaque utilisateur
+        $ut[$pos]='['.$ref.$prix.$qte.']';//remplace la chaine
+        
+        fseek($file, $pos);
+        fwrite($file,$maj);
+        
+    } 
+    fclose($file);*/
 }
 ?>
 
