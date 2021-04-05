@@ -2,7 +2,6 @@
 session_start();
 
 require_once('php/fonctions.php');
-//var_dump($_GET);
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte']) ){
     $pic=$_GET['pic'];
     $ref=$_GET['ref'];
@@ -11,10 +10,6 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
     $qte=$_GET['qte'];
 
     ajout_panier($pic,$ref,$nom,$prix,$qte);
-}
-else if(isset($_GET['ref'])){
-    $ref=$_GET['ref'];
-    supp_panier($ref);
 }
 ?>
 
@@ -65,9 +60,7 @@ else if(isset($_GET['ref'])){
                         echo "<th style='width:110px;' id='prix".$i."'>".$article['prix']."</th>";
                         echo "<th style='width:110px;' class='stock'
                             >".$article['qte']."</th>";
-
-
-                        /*echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'></th>";*/
+                        
                         echo "<th><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'></th>";
 
                         echo "</tr>";

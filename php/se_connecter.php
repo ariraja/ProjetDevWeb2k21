@@ -26,15 +26,7 @@ if(!empty($_POST)){
 
 
         //vérif bdd
-       /* for($i=0;$i<count($user);$i++){
-            if($email==$user[$i]['login']){
-                break;
-            }
-            else{
-                $ok=false;
-                $err_email="Email inexistant !";
-            }
-        }*/
+    
         for($i=0;$i<count($user);$i++){
             if(in_array($email,$user[$i])){
                 $ok=true;
