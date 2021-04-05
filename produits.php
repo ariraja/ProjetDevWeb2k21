@@ -2,6 +2,11 @@
 session_start();
 include_once("php/varSession.inc.php");
 
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){
+    $_SESSION['connecter']=true;
+}
+
+
 if($_GET['cat']=='burger'){
     $categorie=$_SESSION['categorie']->burger;
     $nom_categorie="Burger";
@@ -70,9 +75,7 @@ if($_GET['cat']=='pizza'){
                         echo "<th style='width:110px;' class='stock'
                             >".$key->quantite."</th>";
 
-                        /*if($_SESSION['connecter']==true){
-                            echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><a href='produits.php?cat=burger&pic=".$key->photo."&ref=".$key->ref."&nom=".$key->nom."&prix=".$key->prix."'><input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'><a/> </th>";
-                        }*/
+                        
                         if($_SESSION['connecter']==true){
                             echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'></th>";
                         }

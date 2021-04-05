@@ -1,8 +1,10 @@
 <?php
 session_start();
+
 include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 
-require_once('php/fonctions.php');
+include_once('php/fonctions.php');
+
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte']) ){
     
     

@@ -8,7 +8,7 @@ $_SESSION['connecter']=false;
 
 if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
     header('Location: dashboard.php');
-   exit;
+    exit;
 } 
 
 
@@ -48,7 +48,7 @@ if(!empty($_POST['sinscrire'])){
             $erreur_mdp="Entrez votre mot de passe !";
         }
 
-       
+
         //vérif bdd
         for($i=0;$i<count($user);$i++){
             if($nom==$user[$i]['nom']){
@@ -69,17 +69,21 @@ if(!empty($_POST['sinscrire'])){
         //si email et mdp valides
         if($ok){
             $file= fopen("data/user.txt","a");//ajout utilisateur dans le fichier
-            $row=$email.','.$mdp.','.$nom.','.'[]'.";\n";
+            $row=$email.','.$mdp.','.$nom.','.'[]'.";";
             fwrite($file,$row);
             fclose($file);
             //màj bdd
-            $user_txt = explode(";\n",file_get_contents("data/user.txt"));//ligne
+            $content=file_get_contents("data/user.txt");
+            $user_txt = explode(";",trim($content," \n\r\t\v\0"));//ligne
             for($i=0;$i<count($user);$i++){
                 $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
                 $user[$i]['login']=$info_txt[0];
                 $user[$i]['mdp']=$info_txt[1];
                 $user[$i]['nom']=$info_txt[2];
                 $user[$i]['panier']=$info_txt[3];
+                if($user[$i]['panier']=="[]"){
+                    $user[$i]['panier']=[];
+                }
             }
 
             foreach($user as $u){
@@ -93,10 +97,15 @@ if(!empty($_POST['sinscrire'])){
                     break;
                 }
             }
-             $_SESSION['user_nom']=$nom;
+             $_SESSION['user_id']=$i;
+                    $_SESSION['user_email']=$email;
+                    $_SESSION['user_nom']=$nom;
+                    $_SESSION['user_mdp']=$mdp;
+                    $_SESSION['connecter']=true;
+                    $_SESSION['panier']=[];
             header('Location: dashboard.php');
             exit;
-           
+
         }
     }
 }

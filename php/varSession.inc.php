@@ -4,7 +4,7 @@ $_SESSION['id']=rand(0,50);
 
 
 $_SESSION['connecter']=false;
-if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])  ) {//on vérifie si on est connecté ou pas
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])  ) {//on vérifie si on est connecté ou pas
     $_SESSION['connecter']=true;
 }
 
@@ -87,14 +87,18 @@ $users=[
 
 
 $user=[];//tableau d'utilisateur crée à partir du fichier txt
-$user_txt = explode(";\n",file_get_contents("data/user.txt"));//ligne
+$content=file_get_contents("data/user.txt");
+$user_txt = explode(";",trim($content," \n\r\t\v\0"));
+
 for($i=0;$i<count($user_txt)-1;$i++){
     $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
     $user[$i]['login']=$info_txt[0];
     $user[$i]['mdp']=$info_txt[1];
-    $user[$i]['nom']=$info_txt[2];
+    $user[$i]['nom']=$info_txt[2];//on enlève les sauts de ligne
     $user[$i]['panier']=$info_txt[3];
-   
+    if($user[$i]['panier']=="[]"){
+        $user[$i]['panier']=[];
+    }
 }
 
 //var_dump($user);
