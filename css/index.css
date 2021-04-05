@@ -59,37 +59,49 @@ header{
     font-weight: bold;
 }
 
-/*Tableau déroulant Mon profil*/
-#menu-deroulant, #menu-deroulant ul {
-    display: flex;
-    list-style: none;
+/* MENU DEROULANT MON PROFIL */
+
+
+.sous{
+    display: none;
+    position: absolute;
+    visibility: hidden;
+    background-color: #353036;
 }
-#menu-deroulant {
-/* on centre le menu dans la page */
-    text-align: center;
-}
-#menu-deroulant li {
-/* on place les liens du menu horizontalement */
+nav > ul li:hover .sous{
     display: block;
+    visibility: visible;
+    border-bottom:3px solid #ea272d;
+    border-left:3px solid #ea272d;
+    border-right:3px solid #ea272d;
+    border-radius: 6px;
 }
-#menu-deroulant ul li {
-/* on enlève ce comportement pour les liens du sous menu */
-   display: none;
+.sous li{
+    float: none;
+    width: 100%;
+    text-align: left;
+    border-bottom: yellow;
+    margin-top:10px;
+}
+.sous a{
+    padding: 10px;
+    margin-left:-40px;
+    width: 100%;
 }
 
-#menu-deroulant ul {
-    display: none;
-   
-/* on cache les sous menus complètement sur la gauche */
-    z-index: 1000;
+.sous a:hover{
+    color:#ea272d;
 }
-#menu-deroulant li:hover ul, #menu-deroulant li:hover ul li {
-/* Au survol des li du menu on replace les sous menus */
-    display: contents;
-    display: block;
-     position: relative;
-    left: auto;
+
+.deroulant > a::after{
+    font-size: 12px;
 }
+
+.conteneur{
+  margin: 50px 20px;
+  height: 1500px;
+}
+
 
 
 /** Contenu principal **/

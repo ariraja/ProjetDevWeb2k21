@@ -14,14 +14,17 @@
         if($_SESSION['connecter']==true){
             echo "
             <ul id='menu-deroulant'>
-            <li><a href='commander.php' id='panier'>🛒</a></li>
-	<li><a href='dashboard.php'>Mon profil</a>
-                <ul>
-                <li><a href='dashboard.php'>Tableau de bord</a></li>
-                <li><a href='deconnexion.php'>Déconnexion</a></li>
-                </ul>
+                <li><a href='commander.php' id='panier'>🛒</a></li>
+                <li class='deroulant'><a href='#'>Mon profil &ensp;</a>
+                    <ul class='sous'>
+                            <li></li>
+                            <li><a href='#'>Tableau de bord</a></li>
+                            <br>
+                            <li><a href='#'>Commande</a></li>
+                            <br>
+                    </ul>
                 </li>
-                </ul>";
+            </ul>";
         }
         else{
             echo "<div><a href='#' id='panier' onclick='openForm()'>Commande🛒</a></div>";

@@ -96,5 +96,6 @@ for($i=0;$i<count($user_txt)-1;$i++){
     $user[$i]['panier']=$info_txt[3];
    
 }
+
 //var_dump($user);
 ?>
