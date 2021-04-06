@@ -73,7 +73,7 @@ if($_GET['cat']=='pizza'){
                         echo "<th style='width:110px;' id='nom_produit".$i."'>".$key->nom."</th>";
                         echo "<th style='width:110px;' id='prix".$i."'>".$key->prix."€</th>";
                         echo "<th style='width:110px;' class='stock'
-                            >".$key->quantite."</th>";
+                            id='qte_max".$i."'>".$key->quantite."</th>";
 
                         
                         if($_SESSION['connecter']==true){

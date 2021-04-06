@@ -5,22 +5,30 @@ include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 
 include_once('php/fonctions.php');
 
-if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte']) ){
+if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte'])&& isset($_GET['qte_max']) ){
     
     $pic=$_GET['pic'];
     $ref=$_GET['ref'];
     $nom=$_GET['nom'];
     $prix=$_GET['prix'];
+    $qte_max=$_GET['qte_max'];
     $qte=$_GET['qte'];
     
-    
+    $qte_max=(int)$qte_max;
     $qte=(int)$qte; 
     $trouve=false;
     for($i=0;$i<count($_SESSION['panier'])+1;$i++){
         if($ref==$_SESSION['panier'][$i]['ref']){//si produit déjà dans panier
-            $_SESSION['panier'][$i]['qte']+=$qte;//cumule quantité
-            $trouve=true;
-            break;
+            if((int)$_SESSION['panier'][$i]['qte']+$qte>$qte_max){//si on a trop pris dans le panier
+                $err_qte="Quantité maximale atteinte";
+                $trouve=true;
+                break;
+            }
+            else{
+                $_SESSION['panier'][$i]['qte']+=$qte;//cumule quantité
+                $trouve=true;
+                break;
+            }
         }
         else{
             $trouve=false;
@@ -105,10 +113,13 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
                         echo "<th style='width:110px;' class='stock'
                             >".$article['qte']."</th>";
                         
-                        echo "<th><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'></th>";
-
+                        if(isset($err_qte)){
+                            echo"<th><span style='color:red'>".$err_qte."</span><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'></th>";
+                        }  
+                        else{
+                            echo "<th><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'></th>";
+                        }
                         echo "</tr>";
-
                         $i++;
                     }
 
