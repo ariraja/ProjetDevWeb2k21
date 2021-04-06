@@ -5,9 +5,6 @@ include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 
 include_once('php/fonctions.php');
 
-//var_dump($_SESSION);
-//var_dump($user);
-
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte']) ){
     
     $pic=$_GET['pic'];
@@ -15,9 +12,26 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
     $nom=$_GET['nom'];
     $prix=$_GET['prix'];
     $qte=$_GET['qte'];
-
-    ajout_panier($pic,$ref,$nom,$prix,$qte);
     
+    
+    $qte=(int)$qte; 
+    $trouve=false;
+    for($i=0;$i<count($_SESSION['panier'])+1;$i++){
+        if($ref==$_SESSION['panier'][$i]['ref']){//si produit déjà dans panier
+            $_SESSION['panier'][$i]['qte']+=$qte;//cumule quantité
+            $trouve=true;
+            break;
+        }
+        else{
+            $trouve=false;
+        }
+    }
+    if($trouve==false){//si on n'a pas trouvé ajoute au panier
+        ajout_panier($pic,$ref,$nom,$prix,$qte);
+    }
+
+    
+
     //test save panier
     
   /*  $file= fopen("data/user.txt","r+");//ajout produit dans le fichier

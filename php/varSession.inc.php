@@ -100,6 +100,5 @@ for($i=0;$i<count($user_txt)-1;$i++){
         $user[$i]['panier']=[];
     }
 }
-
 //var_dump($user);
 ?>

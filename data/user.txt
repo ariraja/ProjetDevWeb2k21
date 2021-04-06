@@ -1,1 +1,1 @@
-cyspot@cyu.eu,123,Webmaster,[];ari@cyu.eu,456,Ari,[];jo@cyu.eu,789,Jo,[];
+cyspot@cyu.eu,123,Webmaster,[];ari@cyu.eu,456,Ari,[];jo@cyu.eu,789,Jo,[];test@mail.com,123,test,[];

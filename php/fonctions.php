@@ -32,7 +32,7 @@ function delete_panier(numero){
 
 
 <?php
-    function ajout_panier($pic,$ref,$nom,$prix,$qte){
+    function ajout_panier($pic,$ref,$nom,$prix,$qte){      
         $article=['photo' => $pic,'ref' => $ref, 'nom' =>$nom, 'prix'=>$prix, 'qte' => $qte];
         array_push($_SESSION['panier'],$article);
     }
