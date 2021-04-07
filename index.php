@@ -1,6 +1,6 @@
 <?php
-    session_start();
-   include_once("php/varSession.inc.php");
+session_start();
+include_once("php/varSession.inc.php");
 ?>
 
 

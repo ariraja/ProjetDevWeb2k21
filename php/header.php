@@ -40,9 +40,6 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){//évite qu'u
         else{
             echo "<div><a href='#' id='panier' onclick='openForm()'>Commande🛒</a></div>";
         }
-        /*if($_SESSION['connecter']==false){
-            echo('1');
-        }*/
         ?>
     </nav>
 </header>

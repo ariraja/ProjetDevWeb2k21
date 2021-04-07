@@ -1,9 +1,17 @@
 <?php
 session_start();
 
-include_once("php/varSession.inc.php");//utile pour l'ajout d'article
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])) {//sécurité
+    $_SESSION['connecter']=true;
+} else {
+    header('Location: index.php');
+    exit;
+} 
 
+include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 include_once('php/fonctions.php');
+
+
 
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte'])&& isset($_GET['qte_max']) ){
     
