@@ -14,14 +14,14 @@ include_once('php/fonctions.php');
 
 
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte'])&& isset($_GET['qte_max']) ){
-    
+
     $pic=$_GET['pic'];
     $ref=$_GET['ref'];
     $nom=$_GET['nom'];
-    $prix=$_GET['prix'];
+    $prix=(int)$_GET['prix'];
     $qte_max=$_GET['qte_max'];
     $qte=$_GET['qte'];
-    
+
     $qte_max=(int)$qte_max;
     $qte=(int)$qte; 
     $trouve=false;
@@ -46,31 +46,37 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
         ajout_panier($pic,$ref,$nom,$prix,$qte);
     }
 
-    
-
     //test save panier
-    
-  /*  $file= fopen("data/user.txt","r+");//ajout produit dans le fichier
+
+    /*  $file= fopen("data/user.txt","r+");//ajout produit dans le fichier
     $content_txt = file_get_contents('data/user.txt');
     $find = '[';
     $user_txt = explode(";",trim($content_txt," \n\r\t\v\0"));
-    
+
     foreach($user as $u){
         if(in_array($_SESSION['user_id']),$u){
             implode('|',$u['panier']);
         }
     }*/
-    
+
     /*foreach($user_txt as $ut){
         $pos = strpos($ut, $find);//position du panier pour chaque utilisateur
         $ut[$pos]='['.$ref.$prix.$qte.']';//remplace la chaine
-        
+
         fseek($file, $pos);
         fwrite($file,$maj);
-        
+
     } 
     fclose($file);*/
 }
+
+$prix_total=0;
+$nb_article=0;
+for($i=0;$i<count($_SESSION['panier']);$i++){//calcul montant panier
+    $prix_total+=$_SESSION['panier'][$i]['qte']*$_SESSION['panier'][$i]['prix'];
+    $nb_article+=$_SESSION['panier'][$i]['qte'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -105,37 +111,43 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
                 <h1 class="whats-new">Mon panier</h1>
                 <div class="container">
 
-                    <?php
+               
 
-                    echo "<table>";
-                    $i=1;
+                    <table>
+                    <?php 
+                        $i=1;
                     foreach($_SESSION['panier'] as $article){
+                        ?>
+                      <tr>
 
+                        <th style='width:110px;'><img id='pic' src="<?=$article['photo']?>"></th>
+                        <th style='width:110px;' id='ref<?=$i?>'><?=$article['ref']?></th>
+                        <th style='width:110px;' id='nom_produit<?=$i?>'><?=$article['nom']?></th>
+                        <th style='width:110px;' id='prix<?=$i?>'><?=$article['prix']?>€</th>
+                        <th style='width:110px;' class='stock'><?=$article['qte']?></th>
+                        <th style='width:110px;' class='prix_article<?=$i?>'>=<?=$article['qte']*$article['prix']?>€</th>
 
-                        echo "<tr>";
-
-                        echo "<th style='width:110px;'><img id='pic' src=".$article['photo']."></th>";
-                        echo "<th style='width:110px;' id='ref".$i."'>".$article['ref']."</th>";
-                        echo "<th style='width:110px;' id='nom_produit".$i."'>".$article['nom']."</th>";
-                        echo "<th style='width:110px;' id='prix".$i."'>".$article['prix']."</th>";
-                        echo "<th style='width:110px;' class='stock'
-                            >".$article['qte']."</th>";
-                        
-                        if(isset($err_qte)){
-                            echo"<th><span style='color:red'>".$err_qte."</span><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'></th>";
+                       <th>
+                        <?php if(isset($err_qte)){
+                            echo"<span style='color:red'>".$err_qte."</span><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'>";
                         }  
                         else{
-                            echo "<th><input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'></th>";
-                        }
-                        echo "</tr>";
-                        $i++;
-                    }
+                            echo "<input id='delete".$i."' type='button' value='Supprimer article' onclick='delete_panier(".$i.")'>";
+                        }?>
+                        </th>
+                    </tr>
+                    <?php    $i++;
+                    } ?>
 
-                    echo "</table>";
+                    </table>
 
-                    ?>
 
                 </div>
+                <h3 style="font-family: calibri;
+                           font-weight: bold;">Montant total à payer : 
+                    <?php
+                    echo $prix_total."€ pour ".$nb_article." article(s) ajouté(s) au total.";
+                    ?></h3>
                 <br>
                 <input type="submit" value="Commander">
                 <br>
