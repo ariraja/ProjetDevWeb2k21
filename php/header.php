@@ -28,7 +28,7 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){//évite qu'u
                 <li class='deroulant'><a href='dashboard.php'>Mon profil &ensp;</a>
                     <ul class='sous'>
                         <li><li>
-                        <li style='color:white;font-family: calibri;'>Bonjour ".$_SESSION['user_nom']."</li>
+                        <!--<li style='color:white;font-family: calibri;'>Bonjour ".$_SESSION['user_nom']."</li>-->
                         <li><a href='dashboard.php'>Tableau de bord</a></li>
                         <br>
                         <li><a href='deconnexion.php'>Déconnexion</a></li>

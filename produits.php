@@ -6,19 +6,12 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){
     $_SESSION['connecter']=true;
 }
 
+if(isset($_GET['cat'])){//automatisation de la catégorie
+    $produit=$categorie=$_GET['cat'];
+    $categorie=$_SESSION['categorie']->$produit;
+    $nom_categorie=ucfirst($produit);
+}
 
-if($_GET['cat']=='burger'){
-    $categorie=$_SESSION['categorie']->burger;
-    $nom_categorie="Burger";
-}
-if($_GET['cat']=='poulet'){
-    $categorie=$_SESSION['categorie']->poulet;
-    $nom_categorie="Poulet";
-}
-if($_GET['cat']=='pizza'){
-    $categorie=$_SESSION['categorie']->pizza;
-    $nom_categorie="Pizza";
-}
 ?>
 
 <!DOCTYPE html>
@@ -60,36 +53,35 @@ if($_GET['cat']=='pizza'){
                     <?php
                     include_once("php/se_connecter.php");
                     ?>
+                    <table>
+                        <?php
+                        $i=1;
+                        foreach($categorie as $key){?>
+                        <tr>
+                            <th style='width:110px;'><img id='pic<?=$i?>' src="<?=$key->photo?>"></th>
+                            <th style='width:110px;' id='ref<?=$i?>'><?=$key->ref?></th>
+                            <th style='width:110px;' id='nom_produit<?=$i?>'><?=$key->nom?></th>
+                            <th style='width:110px;' id='prix<?=$i?>'><?=$key->prix?>€</th>
+                            <th style='width:110px;' class='stock'
+                                id='qte_max<?=$i?>'><?=$key->quantite?></th>
 
-                    <?php
+                            <th>
+                                <input id='moins<?=$i?>' type='button' value='-' onclick='moins<?=$i?>()' disabled> <input type='text' id='qte<?=$i?>' value='0'>
+                                <input id='plus<?=$i?>' type='button' value='+' onclick='plus<?=$i?>()'><br><br>
 
-                    echo "<table>";
-                    $i=1;
-                    foreach($categorie as $key){
-                        echo "<tr>";
+                            <?php if($_SESSION['connecter']==true){
 
-                        echo "<th style='width:110px;'><img id='pic".$i."' src=".$key->photo."></th>";
-                        echo "<th style='width:110px;' id='ref".$i."'>".$key->ref."</th>";
-                        echo "<th style='width:110px;' id='nom_produit".$i."'>".$key->nom."</th>";
-                        echo "<th style='width:110px;' id='prix".$i."'>".$key->prix."€</th>";
-                        echo "<th style='width:110px;' class='stock'
-                            id='qte_max".$i."'>".$key->quantite."</th>";
+                            echo"<input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'>";
 
+                                    }
+                                else{
+                                    echo"<input class='AddCart' type='button' value='Ajouter au panier' onclick='openForm()'>";
+                                    }?>
+                            </th>
+                        </tr>
+                        <?php $i++; }?>
 
-                        if($_SESSION['connecter']==true){
-                            echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'></th>";
-                        }
-                        else{
-                            echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'></th>";
-                        }
-
-                        echo "</tr>";
-                        $i++;
-                    }
-
-                    echo "</table>";
-
-                    ?>
+                    </table>
 
                 </div>
 

@@ -60,13 +60,13 @@ header{
 }
 
 /* MENU DEROULANT MON PROFIL */
-
-
 .sous{
     display: none;
     position: absolute;
     visibility: hidden;
     background-color: #353036;
+    width: 0px;
+    height: 0px;
 }
 nav > ul li:hover .sous{
     display: block;
@@ -75,18 +75,22 @@ nav > ul li:hover .sous{
     border-left:3px solid #ea272d;
     border-right:3px solid #ea272d;
     border-radius: 6px;
+    width: 150px;
+    height: 115px;
 }
 .sous li{
+    display: block;
     float: none;
-    width: 100%;
+    width: 145px;
     text-align: left;
     border-bottom: yellow;
     margin-top:10px;
 }
 .sous a{
-    padding: 10px;
+    /*padding: 10px;*/
     margin-left:-40px;
-    width: 100%;
+    /*width: 145px;*/
+    width: 50px;
 }
 
 .sous a:hover{
@@ -99,7 +103,7 @@ nav > ul li:hover .sous{
 
 .conteneur{
   margin: 50px 20px;
-  height: 1500px;
+  height: 500px;
 }
 
 
@@ -286,8 +290,6 @@ nav > ul li:hover .sous{
     z-index: 1
 
 }
-
-
 
 
 
