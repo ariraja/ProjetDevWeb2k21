@@ -13,12 +13,25 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])  ) {//on véri
 /* les tableaux de chaque catégorie */
 
 /*$burger=[
+<<<<<<< HEAD
 'burger01'=>['photo' => 'img/burger_hamburger.jpg','ref' => 'burger01', 'nom'=>'Hamburger','prix'=>5 , 'quantite' => 10],
 'burger02'=>['photo' => 'img/cheeseburger.png', 'ref' => 'burger02', 'nom'=>'Cheeseburger','prix'=>5 , 'quantite' => 8],
 'burger03'=>['photo' => 'img/burger_cheesebacon.jpg', 'ref' =>
 'burger03', 'nom'=>'Cheese Bacon','prix'=>7 , 'quantite' => 6],
 'burger04'=>['photo' => 'img/burger_doublecheese.jpg', 'ref' => 'burger04', 'nom'=>'Double Cheese','prix'=>6 , 'quantite' => 7],
 'burger05'=>['photo' => 'img/burger_bigmac.jpg', 'ref' => 'burger05' ,'nom'=>'Big Mac','prix'=>8 , 'quantite' => 5]
+=======
+    'burger01'=>['photo' => 'img/burger_hamburger.jpg','ref' => 'burger01', 'nom'=>'Hamburger','prix'=>5 , 'quantite' => 10],
+
+    'burger02'=>['photo' => 'img/cheeseburger.png', 'ref' => 'burger02', 'nom'=>'Cheeseburger','prix'=>5 , 'quantite' => 8],
+
+    'burger03'=>['photo' => 'img/burger_cheesebacon.jpg', 'ref' => 
+    'burger03',  'nom'=>'Cheese Bacon','prix'=>7 , 'quantite' => 6],
+
+    'burger04'=>['photo' => 'img/burger_doublecheese.jpg', 'ref' => 'burger04', 'nom'=>'Double Cheese','prix'=>6 , 'quantite' => 7],
+
+    'burger05'=>['photo' => 'img/burger_bigmac.jpg', 'ref' => 'burger05' ,'nom'=>'Big Mac','prix'=>8 , 'quantite' => 5]
+>>>>>>> 29d2ac350fa9c5fe69941dd71cd3ec493bd8c3fd
 ];
 
 $poulet=[
@@ -95,6 +108,4 @@ $user[$i]['panier']=[];
 }
 
 }
-
-//var_dump($user);
 ?>

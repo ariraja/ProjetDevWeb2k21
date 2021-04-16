@@ -14,10 +14,16 @@ if(!empty($_POST['submit'])){
 
     if(isset($_POST['submit'])){
 
+        if($_SESSION['connecter']==true){
+            $nom=$_SESSION['user_nom'];
+            $mail=$_SESSION['user_email'];
+        }
+        else{
+            $mail=$_POST['mail'];
+            $nom=$_POST['nom'];
+        }
         $_POST['contact_date']=date("Y-m-d");
-        $nom=$_POST['nom'];
         $prenom=$_POST['prenom'];
-        $mail=$_POST['mail'];
         $naiss=$_POST['naissance_date'];
         $obj=$_POST['objet'];
         $contenu=$_POST['contenu'];
@@ -82,14 +88,6 @@ if(!empty($_POST['submit'])){
 
 
         if($ok){//si tout est bon
-            /*$_SESSION['contact_date']=date("Y-m-d");
-            $_SESSION['nom']=$nom;
-            $_SESSION['prenom']=$prenom;
-            $_SESSION['mail']=$mail;
-            $_SESSION['naissance_date']=$naiss;
-            $_SESSION['objet']=$obj;
-            $_SESSION['contenu']=$contenu;*/
-
             $mail = new PHPMailer(true);
 
             try {

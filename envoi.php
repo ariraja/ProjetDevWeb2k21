@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -30,20 +30,20 @@
 
             <section class="form-section">
                 <br><br/>
-                
+
                 <?php
                 include_once("php/se_connecter.php");
                 ?>
-                
+
                 <h1>Demande de contact</h1>
                 <div class="form-style">
-               <?php
+                    <?php
                     echo "Envoi effectué ! Un mail de vérification a été envoyé au webmaster.";
                     ?>
                 </div>
             </section>
         </div>
-        
+
         <?php
         include_once("php/footer.php");
         ?>

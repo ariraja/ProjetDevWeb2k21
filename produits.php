@@ -34,10 +34,10 @@ if($_GET['cat']=='pizza'){
         <script type="text/javascript" src="js/burger.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <?php 
-            if($_SESSION['connecter']==true){
-                require_once('php/fonctions.php'); 
-            }
-    
+        if($_SESSION['connecter']==true){
+            require_once('php/fonctions.php'); 
+        }
+
         ?>
     </head>
     <body>
@@ -73,9 +73,9 @@ if($_GET['cat']=='pizza'){
                         echo "<th style='width:110px;' id='nom_produit".$i."'>".$key->nom."</th>";
                         echo "<th style='width:110px;' id='prix".$i."'>".$key->prix."€</th>";
                         echo "<th style='width:110px;' class='stock'
-                            >".$key->quantite."</th>";
+                            id='qte_max".$i."'>".$key->quantite."</th>";
 
-                        
+
                         if($_SESSION['connecter']==true){
                             echo"<th><input id='moins".$i."' type='button' value='-' onclick='moins".$i."()' disabled> <input type='text' id='qte".$i."' value='0'> <input id='plus".$i."' type='button' value='+' onclick='plus".$i."()'><br><br><input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'></th>";
                         }
@@ -84,8 +84,8 @@ if($_GET['cat']=='pizza'){
                         }
 
                         echo "</tr>";
-                            $i++;
-                        }
+                        $i++;
+                    }
 
                     echo "</table>";
 

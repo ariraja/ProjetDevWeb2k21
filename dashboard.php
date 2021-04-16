@@ -1,8 +1,11 @@
 <?php
-    session_start();
-    //var_dump($user);
-    //var_dump($_SESSION);
+session_start();
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){//sécurité
     $_SESSION['connecter']=true;
+} else {
+    header('Location: index.php');
+    exit;
+} 
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +47,7 @@
         </div>
 
         <?php
-        include_once("php/footer.php");
+    include_once("php/footer.php");
         ?>
 
     </body>

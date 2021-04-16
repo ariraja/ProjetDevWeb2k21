@@ -2,8 +2,6 @@
 session_start();
 include_once("php/varSession.inc.php");//utile pour l'ajout d'utilisateurs après
 
-
-
 $_SESSION['connecter']=false;
 
 if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
@@ -97,12 +95,12 @@ if(!empty($_POST['sinscrire'])){
                     break;
                 }
             }
-             $_SESSION['user_id']=$i;
-                    $_SESSION['user_email']=$email;
-                    $_SESSION['user_nom']=$nom;
-                    $_SESSION['user_mdp']=$mdp;
-                    $_SESSION['connecter']=true;
-                    $_SESSION['panier']=[];
+            $_SESSION['user_id']=$i;
+            $_SESSION['user_email']=$email;
+            $_SESSION['user_nom']=$nom;
+            $_SESSION['user_mdp']=$mdp;
+            $_SESSION['connecter']=true;
+            $_SESSION['panier']=[];
             header('Location: dashboard.php');
             exit;
 
