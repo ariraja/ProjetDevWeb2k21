@@ -1,14 +1,26 @@
 <?php
 session_start();
-include_once("php/varSession.inc.php");
+//include_once("php/varSession.inc.php");
+include_once("php/bddData.php");
+
+
+
 
 if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){
     $_SESSION['connecter']=true;
 }
 
 if(isset($_GET['cat'])){//automatisation de la catégorie
-    $produit=$categorie=$_GET['cat'];
-    $categorie=$_SESSION['categorie']->$produit;
+    
+    
+    $req = $BDD->prepare("SELECT * 
+                    FROM produits
+                    WHERE categorie = ?");
+    $req->execute(array($_GET['cat']));
+    $categorie=$req->fetchAll();
+    
+    $produit=$_GET['cat'];
+    /*$categorie=$_SESSION['categorie']->$produit;*/
     $nom_categorie=ucfirst($produit);
 }
 
@@ -58,12 +70,12 @@ if(isset($_GET['cat'])){//automatisation de la catégorie
                         $i=1;
                         foreach($categorie as $key){?>
                         <tr>
-                            <th style='width:110px;'><img id='pic<?=$i?>' src="<?=$key->photo?>"></th>
-                            <th style='width:110px;' id='ref<?=$i?>'><?=$key->ref?></th>
-                            <th style='width:110px;' id='nom_produit<?=$i?>'><?=$key->nom?></th>
-                            <th style='width:110px;' id='prix<?=$i?>'><?=$key->prix?>€</th>
+                            <th style='width:110px;'><img id='pic<?=$i?>' src="<?=$key['photo']?>"></th>
+                            <th style='width:110px;' id='ref<?=$i?>'><?=$key['ref']?></th>
+                            <th style='width:110px;' id='nom_produit<?=$i?>'><?=$key['nom']?></th>
+                            <th style='width:110px;' id='prix<?=$i?>'><?=$key['prix']?>€</th>
                             <th style='width:110px;' class='stock'
-                                id='qte_max<?=$i?>'><?=$key->quantite?></th>
+                                id='qte_max<?=$i?>'><?=$key['qte_stock']?></th>
 
                             <th>
                                 <input id='moins<?=$i?>' type='button' value='-' onclick='moins<?=$i?>()' disabled> <input type='text' id='qte<?=$i?>' value='0'>

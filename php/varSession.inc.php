@@ -10,9 +10,9 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])  ) {//on véri
 
 
 //import categories from JSON
-$json_code=file_get_contents("data/categorie.json");
+/*$json_code=file_get_contents("data/categorie.json");
 $json_code=str_replace('}, ]',"} ]",$json_code);
-$_SESSION['categorie']=json_decode($json_code);
+$_SESSION['categorie']=json_decode($json_code);*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*Tableaux des utilisateurs*/
