@@ -75,7 +75,6 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
         ajout_panier($pic,$ref,$nom,$prix,$qte);
     }
 
-}
 
 $prix_total=0;
 $nb_article=0;
