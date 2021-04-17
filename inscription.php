@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once("php/varSession.inc.php");//utile pour l'ajout d'utilisateurs après
+include_once("php/bddData.php");
+
 
 $_SESSION['connecter']=false;
 
@@ -28,6 +30,17 @@ if(!empty($_POST['sinscrire'])){
         else if(!ctype_alnum($nom)){
             $ok=false;
             $erreur_nom="Le nom ne doit pas contenir de caractères spéciaux !";
+        }else{
+            $req = $BDD->prepare("SELECT nom 
+                            FROM user
+                            WHERE nom = ?");
+            $req->execute(array($nom));
+            $user = $req->fetch();
+            
+            if(isset($user['nom'])){
+                $ok = false;
+                $erreur_nom = "Ce nom est déjà pris ! Choississez-en un autre. ";
+            }
         }
 
         //Vérification mail
@@ -38,6 +51,17 @@ if(!empty($_POST['sinscrire'])){
         else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
             $ok=false;
             $erreur_email="Le mail doit s'écrire comme sous cette forme : monmail@mail.com";
+        }else{
+            $req = $BDD->prepare("SELECT login
+                            FROM user
+                            WHERE login = ?");
+            $req->execute(array($email));
+            $user = $req->fetch();
+            
+            if(isset($user['login'])){
+                $ok = false;
+                $erreur_email = "Cet e-mail existe déja !";
+            }
         }
 
         //Vérification mdp
@@ -45,68 +69,33 @@ if(!empty($_POST['sinscrire'])){
             $ok=false;
             $erreur_mdp="Entrez votre mot de passe !";
         }
-
-
-        //vérif bdd
-        for($i=0;$i<count($user);$i++){
-            if($nom==$user[$i]['nom']){
-                $ok=false;
-                $erreur_nom="Nom existant !<br>";
-                break;
-            }
-        }
-        for($i=0;$i<count($user);$i++){
-            if(in_array($email,$user[$i])){
-                $ok=false;
-                $erreur_email="Email existant !";
-                break;
-            }
+            
         }
 
 
         //si email et mdp valides
         if($ok){
-            $file= fopen("data/user.txt","a");//ajout utilisateur dans le fichier
-            $row=$email.','.$mdp.','.$nom.','.'[]'.";";
-            fwrite($file,$row);
-            fclose($file);
-            //màj bdd
-            $content=file_get_contents("data/user.txt");
-            $user_txt = explode(";",trim($content," \n\r\t\v\0"));//ligne
-            for($i=0;$i<count($user);$i++){
-                $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
-                $user[$i]['login']=$info_txt[0];
-                $user[$i]['mdp']=$info_txt[1];
-                $user[$i]['nom']=$info_txt[2];
-                $user[$i]['panier']=$info_txt[3];
-                if($user[$i]['panier']=="[]"){
-                    $user[$i]['panier']=[];
-                }
-            }
-
-            foreach($user as $u){
-                if( ($u['login']==$email) && ($u['mdp']==$mdp)){
-                    $_SESSION['user_id']=$i;
-                    $_SESSION['user_email']=$email;
-                    $_SESSION['user_nom']=$nom;
-                    $_SESSION['user_mdp']=$mdp;
-                    $_SESSION['connecter']=true;
-                    $_SESSION['panier']=$u['panier'];
-                    break;
-                }
-            }
-            $_SESSION['user_id']=$i;
-            $_SESSION['user_email']=$email;
-            $_SESSION['user_nom']=$nom;
-            $_SESSION['user_mdp']=$mdp;
+            
+            $req = $BDD->prepare("INSERT INTO user (login,mdp,nom) VALUES (?, ?, ?)");
+            
+            $req->execute(array($email,$mdp,$nom));
+            
+            $req = $BDD->prepare("SELECT login, nom FROM user WHERE login = ? AND nom = ?");
+            
+            $req->execute(array($nom,$email));
+            $u = $req->fetch();
+            
+            
+            $_SESSION['user_email']=$u['login'];
+            $_SESSION['user_nom']=$u['nom'];
+            $_SESSION['user_mdp']=$u['mdp'];
             $_SESSION['connecter']=true;
-            $_SESSION['panier']=[];
             header('Location: dashboard.php');
             exit;
 
         }
     }
-}
+
 
 ?>
 <!DOCTYPE html>

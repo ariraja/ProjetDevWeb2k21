@@ -1,5 +1,6 @@
 <?php
 $_SESSION['user']="visiteur";
+include_once("php/bddData.php");
 $_SESSION['id']=rand(0,50);
 
 
@@ -18,10 +19,17 @@ $_SESSION['categorie']=json_decode($json_code);*/
 /*Tableaux des utilisateurs*/
 
 /*$user=[];//tableau d'utilisateur crée à partir du fichier txt
+=======
+/*
+$user=[];//tableau d'utilisateur crée à partir du fichier txt
+>>>>>>> 978932a69e8605efc1bad2e0da2bdb198784b988
 $content=file_get_contents("data/user.txt");
 $user_txt = explode(";",trim($content," \n\r\t\v\0"));
 
+//$user_txt=rtrim($user_txt,"\n");
+//var_dump($user_txt);
 for($i=0;$i<count($user_txt)-1;$i++){
+<<<<<<< HEAD
     $info_txt = explode(",",$user_txt[$i]);//pour chaque utilisateur on prend ces infos
     $user[$i]['login']=$info_txt[0];
     $user[$i]['mdp']=$info_txt[1];
@@ -31,5 +39,4 @@ for($i=0;$i<count($user_txt)-1;$i++){
         $user[$i]['panier']=[];
     }
 }*/
-
 ?>
