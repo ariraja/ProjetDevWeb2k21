@@ -6,7 +6,7 @@ include_once("php/bddData.php");
 
 $_SESSION['connecter']=false;
 
-if(isset($_SESSION['user_id']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){//évite qu'un connecté s'inscrit
     header('Location: dashboard.php');
     exit;
 } 
@@ -30,18 +30,18 @@ if(!empty($_POST['sinscrire'])){
         else if(!ctype_alnum($nom)){
             $ok=false;
             $erreur_nom="Le nom ne doit pas contenir de caractères spéciaux !";
-        }else{
-            $req = $BDD->prepare("SELECT nom 
+        }
+        $req = $BDD->prepare("SELECT nom 
                             FROM user
                             WHERE nom = ?");
-            $req->execute(array($nom));
-            $user = $req->fetch();
+        $req->execute(array($nom));
+        $verif_nom = $req->fetch();
             
-            if(isset($user['nom'])){
-                $ok = false;
-                $erreur_nom = "Ce nom est déjà pris ! Choississez-en un autre. ";
-            }
+        if(isset($verif_nom['nom'])){
+            $ok = false;
+            $erreur_nom = "Ce nom est déjà pris ! Choississez-en un autre.";
         }
+        
 
         //Vérification mail
         if(empty($email)){
@@ -51,51 +51,43 @@ if(!empty($_POST['sinscrire'])){
         else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
             $ok=false;
             $erreur_email="Le mail doit s'écrire comme sous cette forme : monmail@mail.com";
-        }else{
-            $req = $BDD->prepare("SELECT login
+        }
+        
+        $req = $BDD->prepare("SELECT login
                             FROM user
                             WHERE login = ?");
-            $req->execute(array($email));
-            $user = $req->fetch();
+        $req->execute(array($email));
+        $verif_login = $req->fetch();
             
-            if(isset($user['login'])){
+        if(isset($verif_login['login'])){
                 $ok = false;
                 $erreur_email = "Cet e-mail existe déja !";
-            }
         }
-
+        
         //Vérification mdp
         if(empty($mdp)){
             $ok=false;
             $erreur_mdp="Entrez votre mot de passe !";
         }
-            
-        }
-
 
         //si email et mdp valides
         if($ok){
-            
             $req = $BDD->prepare("INSERT INTO user (login,mdp,nom) VALUES (?, ?, ?)");
-            
             $req->execute(array($email,$mdp,$nom));
             
-            $req = $BDD->prepare("SELECT login, nom FROM user WHERE login = ? AND nom = ?");
+            /*$req = $BDD->prepare("SELECT login,nom FROM user WHERE login = ? AND nom = ?");
             
             $req->execute(array($nom,$email));
-            $u = $req->fetch();
+            $u = $req->fetch();*/
             
-            
-            $_SESSION['user_email']=$u['login'];
-            $_SESSION['user_nom']=$u['nom'];
-            $_SESSION['user_mdp']=$u['mdp'];
-            $_SESSION['connecter']=true;
+            $_SESSION['user_email']=$email;
+            $_SESSION['user_nom']=$nom;
+            $_SESSION['user_mdp']=$mdp;
             header('Location: dashboard.php');
             exit;
-
         }
     }
-
+}
 
 ?>
 <!DOCTYPE html>

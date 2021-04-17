@@ -45,29 +45,6 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
     if($trouve==false){//si on n'a pas trouvé ajoute au panier
         ajout_panier($pic,$ref,$nom,$prix,$qte);
     }
-
-    //test save panier
-
-    /*  $file= fopen("data/user.txt","r+");//ajout produit dans le fichier
-    $content_txt = file_get_contents('data/user.txt');
-    $find = '[';
-    $user_txt = explode(";",trim($content_txt," \n\r\t\v\0"));
-
-    foreach($user as $u){
-        if(in_array($_SESSION['user_id']),$u){
-            implode('|',$u['panier']);
-        }
-    }*/
-
-    /*foreach($user_txt as $ut){
-        $pos = strpos($ut, $find);//position du panier pour chaque utilisateur
-        $ut[$pos]='['.$ref.$prix.$qte.']';//remplace la chaine
-
-        fseek($file, $pos);
-        fwrite($file,$maj);
-
-    } 
-    fclose($file);*/
 }
 
 $prix_total=0;
