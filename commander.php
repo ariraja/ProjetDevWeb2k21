@@ -10,7 +10,7 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])) {//sécurité
 
 include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 include_once('php/fonctions.php');
-
+include_once("php/bddData.php");
 
 
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&& isset($_GET['qte'])&& isset($_GET['qte_max']) ){
@@ -25,6 +25,8 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
     $qte_max=(int)$qte_max;
     $qte=(int)$qte; 
     $trouve=false;
+    
+   /*
     for($i=0;$i<count($_SESSION['panier'])+1;$i++){
         if($ref==$_SESSION['panier'][$i]['ref']){//si produit déjà dans panier
             if((int)$_SESSION['panier'][$i]['qte']+$qte>$qte_max){//si on a trop pris dans le panier
@@ -42,40 +44,47 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
             $trouve=false;
         }
     }
+    */
+    
+    $req = $BDD->prepare("SELECT id_panier, qte_produit FROM panier WHERE id_panier = ?");
+    $req->execute(array($_SESSION['user_email']));
+    $verif_panier = $req->fetch();
+    
+    if(isset($verif_panier['id_panier']){//si produit déjà dans panier
+            if($verif_panier['qte_produit']+$qte>$qte_max){//si on a trop pris dans le panier
+                $err_qte="Quantité maximale atteinte";
+                $trouve=true;
+                break;
+            }
+            else{
+                $verif_panier['qte_produit']+=$qte;//cumule quantité
+                $req = $BDD->prepare("UPDATE panier SET qte_produit = ? WHERE id_panier = ?");
+                $req->execute(array($verif-panier['qte_produit'],$_SESSION['user_email']));
+                $trouve=true;
+                break;
+            }
+        }
+        else{
+            $trouve=false;
+        }
+    
+    
     if($trouve==false){//si on n'a pas trouvé ajoute au panier
+        $req = $BDD->prepare("INSERT INTO panier (id_panier,user_id,produit_id,qte_produit) VALUES (?,?,?)");
+    $req->execute(array($_SESSION['user_email'],$_SESSION['user_email'],$ref,$qte));
         ajout_panier($pic,$ref,$nom,$prix,$qte);
     }
 
-    //test save panier
-
-    /*  $file= fopen("data/user.txt","r+");//ajout produit dans le fichier
-    $content_txt = file_get_contents('data/user.txt');
-    $find = '[';
-    $user_txt = explode(";",trim($content_txt," \n\r\t\v\0"));
-
-    foreach($user as $u){
-        if(in_array($_SESSION['user_id']),$u){
-            implode('|',$u['panier']);
-        }
-    }*/
-
-    /*foreach($user_txt as $ut){
-        $pos = strpos($ut, $find);//position du panier pour chaque utilisateur
-        $ut[$pos]='['.$ref.$prix.$qte.']';//remplace la chaine
-
-        fseek($file, $pos);
-        fwrite($file,$maj);
-
-    } 
-    fclose($file);*/
 }
 
 $prix_total=0;
 $nb_article=0;
-for($i=0;$i<count($_SESSION['panier']);$i++){//calcul montant panier
+/*for($i=0;$i<count($_SESSION['panier']);$i++){//calcul montant panier
     $prix_total+=$_SESSION['panier'][$i]['qte']*$_SESSION['panier'][$i]['prix'];
     $nb_article+=$_SESSION['panier'][$i]['qte'];
-}
+}*/
+
+
 
 ?>
 
