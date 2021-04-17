@@ -1,5 +1,6 @@
 <?php
 $_SESSION['user']="visiteur";
+include_once("php/bddData.php");
 $_SESSION['id']=rand(0,50);
 
 
@@ -17,7 +18,7 @@ $_SESSION['categorie']=json_decode($json_code);*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*Tableaux des utilisateurs*/
 
-
+/*
 $user=[];//tableau d'utilisateur crée à partir du fichier txt
 $content=file_get_contents("data/user.txt");
 $user_txt = explode(";",trim($content," \n\r\t\v\0"));
@@ -34,5 +35,5 @@ if($user[$i]['panier']=="[]"){
 $user[$i]['panier']=[];
 }
 
-}
+}*/
 ?>
