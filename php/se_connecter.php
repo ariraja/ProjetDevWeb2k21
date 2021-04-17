@@ -1,4 +1,6 @@
 <?php
+include_once("php/bddData.php");
+
 if(!empty($_POST)){
     $ok=true;
 
@@ -22,49 +24,42 @@ if(!empty($_POST)){
             $ok=false;
             $err_mdp="Entrez votre mot de passe !";
         }
-        
-        //vérif bdd
-    
-        for($i=0;$i<count($user);$i++){
-            if(in_array($email,$user[$i])){
-                $ok=true;
-                $err_email="";
-                break;
-            }
-            else{
-                $ok=false;
-                $err_email="Email inexistant !";
-            }
-        }
-        
-        for($i=0;$i<count($user);$i++){
-            if(in_array($mdp,$user[$i])){
-                $ok=true;
-                $err_mdp="";
-                break;
-            }
-            else{
-                $ok=false;
-                $err_mdp="Mot de passe inexistant !<br>";
-            }
 
+        //vérif bdd
+        $req = $BDD->prepare("SELECT login
+                            FROM user
+                            WHERE login = ? 
+                                ");
+        $req->execute(array($email));
+        $verif_email = $req->fetch();
+
+        if(!isset($verif_email['login'])){//si on trouve pas l'email dans la BDD
+            $ok = false;
+            $err_email = "Email inexistant !";
         }
+
         //si email et mdp existent
         if($ok==true){
-            foreach($user as $u){
-                if( ($u['login']==$email) && ($u['mdp']==$mdp)){
-                    $_SESSION['user_id']=$i;
-                    $_SESSION['user_email']=$email;
-                    $_SESSION['user_nom']=$u['nom'];
-                    $_SESSION['user_mdp']=$mdp;
-                    $_SESSION['connecter']=true;
-                    $_SESSION['panier']=$u['panier'];
-                    header('Location: dashboard.php');
-                    exit;
-                }
+
+            $req = $BDD->prepare("SELECT login,nom
+                            FROM user
+                            WHERE login = ? AND mdp = ?
+                                ");
+            $req->execute(array($email,$mdp));
+            $verif_user = $req->fetch();
+
+            if(!isset($verif_user['login'])) {//si email ou mdp entrés sont non valides 
+                $err_mdp="L'email et le mot de passe ne correspondent pas !<br>";
+
             }
-            //si email ou mdp entrés sont non valides 
-            $err_mdp="L'email ou le mot de passe ne correspondent pas !<br>";
+            else{
+                $_SESSION['user_email']=$email;
+                $_SESSION['user_nom']=$verif_user['nom'];
+                $_SESSION['user_mdp']=$mdp;
+                $_SESSION['connecter']=true;
+                header('Location: dashboard.php');
+                exit;
+            }
         }
     }
 }

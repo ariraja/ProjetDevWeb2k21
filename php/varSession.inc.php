@@ -17,7 +17,7 @@ $_SESSION['categorie']=json_decode($json_code);*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*Tableaux des utilisateurs*/
 
-$user=[];//tableau d'utilisateur crée à partir du fichier txt
+/*$user=[];//tableau d'utilisateur crée à partir du fichier txt
 $content=file_get_contents("data/user.txt");
 $user_txt = explode(";",trim($content," \n\r\t\v\0"));
 
@@ -30,5 +30,6 @@ for($i=0;$i<count($user_txt)-1;$i++){
     if($user[$i]['panier']=="[]"){
         $user[$i]['panier']=[];
     }
-}
+}*/
+
 ?>
