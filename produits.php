@@ -68,6 +68,7 @@ if(isset($_GET['cat'])){//automatisation de la catégorie
                     <table>
                         <?php
                         $i=1;
+                        //var_dump($categorie);
                         foreach($categorie as $key){?>
                         <tr>
                             <th style='width:110px;'><img id='pic<?=$i?>' src="<?=$key['photo']?>"></th>

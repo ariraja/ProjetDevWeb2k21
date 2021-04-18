@@ -15,7 +15,7 @@ function add_panier(numero){
     
     if(quantite.value==0){return false;}
     
-    let url="commander.php?pic="+pic+"&ref="+ref.innerHTML+"&nom="+nom.innerHTML+"&prix="+prix.innerHTML+"&qte_max="+quantite_max.innerHTML+"&qte="+quantite.value;
+    let url="panier.php?pic="+pic+"&ref="+ref.innerHTML+"&nom="+nom.innerHTML+"&prix="+prix.innerHTML+"&qte_max="+quantite_max.innerHTML+"&qte="+quantite.value;
     console.log(url);
     xmlhttp.open("GET",url,true);
     xmlhttp.send();
@@ -36,8 +36,8 @@ function delete_panier(numero){
 
 <?php
     function ajout_panier($pic,$ref,$nom,$prix,$qte){      
-        $article=['photo' => $pic,'ref' => $ref, 'nom' =>$nom, 'prix'=>$prix, 'qte' => $qte];
-        array_push($_SESSION['panier'],$article);
+        /*$article=['photo' => $pic,'ref' => $ref, 'nom' =>$nom, 'prix'=>$prix, 'qte' => $qte];
+        array_push($_SESSION['panier'],$article);*/
     }
 
     function supp_panier($ref){

@@ -24,7 +24,7 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){//évite qu'u
         if($_SESSION['connecter']==true){
             echo "
             <ul id='menu-deroulant'>
-                <li><a href='commander.php' id='panier'>🛒</a></li>
+                <li><a href='panier.php' id='panier'>🛒</a></li>
                 <li class='deroulant'><a href='dashboard.php'>Mon profil &ensp;</a>
                     <ul class='sous'>
                         <li><li>
