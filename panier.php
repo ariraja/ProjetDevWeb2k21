@@ -51,6 +51,48 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
     }
 }
 
+if(!empty($_POST['submit'])){
+    $ok=true;
+    
+    if(isset($_POST['submit'])){
+        
+        $req = $BDD->prepare("SELECT * 
+                    FROM panier
+                    WHERE user_id = ?");
+        $req->execute(array($_SESSION['user_email']));
+        $verif_panier=$req->fetch();
+        
+        if(empty($verif_panier)){//si le panier est vide on ne peut pas commander
+            $ok=false;
+        }
+        
+        if($ok){
+            //requête pour insérer une commande
+            $req=$BDD->prepare("INSERT INTO commande(user_id,produit_id,prix,qte_produit)
+SELECT pa.user_id,pr.ref,pr.prix,pa.qte_produit
+FROM produits pr, panier pa 
+WHERE pr.ref = pa.produit_id AND pa.user_id = ?");
+            $req->execute(array($_SESSION['user_email']));
+            
+            //modifie stock des produits après commande
+            $req = $BDD->prepare("DELETE FROM panier 
+ WHERE user_id = ?"); 
+    $req->execute(array($_SESSION['user_email']));
+            $req = $BDD->prepare("UPDATE produits
+            JOIN commande ON commande.produit_id=produits.ref
+            SET produits.qte_stock = produits.qte_stock-commande.qte_produit WHERE user_id = ?");
+            $req->execute(array($_SESSION['user_email']));
+            
+             //supprime panier après commande
+            $req = $BDD->prepare("DELETE FROM panier 
+ WHERE user_id = ?"); 
+    $req->execute(array($_SESSION['user_email']));
+            
+            header('Location: commander.php');
+            exit;
+        }
+    }
+}
 
 ?>
 
@@ -82,9 +124,10 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
             include_once("php/menu_contextuel.php");
             ?>
             <section class="main-section">
-
+                <form method="post">
                 <h1 class="whats-new">Mon panier</h1>
                 <div class="container">
+                   
                     <table>
                         <?php 
                         $req1 = $BDD->prepare("SELECT * 
@@ -127,8 +170,9 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
                     echo $prix_total."€ pour ".$nb_article." article(s) ajouté(s) au total.";
                     ?></h3>
                 <br>
-                <input type="submit" value="Commander">
+                <input type="submit" name="submit" id="submit" class="submit" value="Commander">
                 <br>
+                 </form>
             </section>
 
         </div>

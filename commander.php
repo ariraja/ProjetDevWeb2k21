@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])) {//sécurité
+    $_SESSION['connecter']=true;
+} else {
+    header('Location: index.php');
+    exit;
+} 
 ?>
 <!DOCTYPE html>
 <html>

@@ -11,14 +11,14 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])){
 }
 
 if(isset($_GET['cat'])){//automatisation de la catégorie
-    
-    
+
+
     $req = $BDD->prepare("SELECT * 
                     FROM produits
                     WHERE categorie = ?");
     $req->execute(array($_GET['cat']));
     $categorie=$req->fetchAll();
-    
+
     $produit=$_GET['cat'];
     /*$categorie=$_SESSION['categorie']->$produit;*/
     $nom_categorie=ucfirst($produit);
@@ -69,7 +69,8 @@ if(isset($_GET['cat'])){//automatisation de la catégorie
                         <?php
                         $i=1;
                         //var_dump($categorie);
-                        foreach($categorie as $key){?>
+                        foreach($categorie as $key){
+                        ?>
                         <tr>
                             <th style='width:110px;'><img id='pic<?=$i?>' src="<?=$key['photo']?>"></th>
                             <th style='width:110px;' id='ref<?=$i?>'><?=$key['ref']?></th>
@@ -82,14 +83,10 @@ if(isset($_GET['cat'])){//automatisation de la catégorie
                                 <input id='moins<?=$i?>' type='button' value='-' onclick='moins<?=$i?>()' disabled> <input type='text' id='qte<?=$i?>' value='0'>
                                 <input id='plus<?=$i?>' type='button' value='+' onclick='plus<?=$i?>()'><br><br>
 
-                            <?php if($_SESSION['connecter']==true){
+                                <input class='AddCart' type='button' value='Ajouter au panier' onclick='<?php if($_SESSION['connecter']==true){echo "add_panier(".$i.")";}
+                            else{
+                                echo "openForm()";}?>'>
 
-                            echo"<input class='AddCart' type='button' value='Ajouter au panier'  onclick='add_panier(".$i.")'>";
-
-                                    }
-                                else{
-                                    echo"<input class='AddCart' type='button' value='Ajouter au panier' onclick='openForm()'>";
-                                    }?>
                             </th>
                         </tr>
                         <?php $i++; }?>
