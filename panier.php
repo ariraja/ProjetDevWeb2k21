@@ -8,7 +8,6 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])) {//sécurité
     exit;
 } 
 
-include_once("php/varSession.inc.php");//utile pour l'ajout d'article
 include_once('php/fonctions.php');
 include_once("php/bddData.php");
 
@@ -50,50 +49,6 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
         //ajout_panier($pic,$ref,$nom,$prix,$qte);
     }
 }
-
-if(!empty($_POST['submit'])){
-    $ok=true;
-    
-    if(isset($_POST['submit'])){
-        
-        $req = $BDD->prepare("SELECT * 
-                    FROM panier
-                    WHERE user_id = ?");
-        $req->execute(array($_SESSION['user_email']));
-        $verif_panier=$req->fetch();
-        
-        if(empty($verif_panier)){//si le panier est vide on ne peut pas commander
-            $ok=false;
-        }
-        
-        if($ok){
-            //requête pour insérer une commande
-            $req=$BDD->prepare("INSERT INTO commande(user_id,produit_id,prix,qte_produit)
-SELECT pa.user_id,pr.ref,pr.prix,pa.qte_produit
-FROM produits pr, panier pa 
-WHERE pr.ref = pa.produit_id AND pa.user_id = ?");
-            $req->execute(array($_SESSION['user_email']));
-            
-            //modifie stock des produits après commande
-            $req = $BDD->prepare("DELETE FROM panier 
- WHERE user_id = ?"); 
-    $req->execute(array($_SESSION['user_email']));
-            $req = $BDD->prepare("UPDATE produits
-            JOIN commande ON commande.produit_id=produits.ref
-            SET produits.qte_stock = produits.qte_stock-commande.qte_produit WHERE user_id = ?");
-            $req->execute(array($_SESSION['user_email']));
-            
-             //supprime panier après commande
-            $req = $BDD->prepare("DELETE FROM panier 
- WHERE user_id = ?"); 
-    $req->execute(array($_SESSION['user_email']));
-            
-            header('Location: commander.php');
-            exit;
-        }
-    }
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +79,7 @@ WHERE pr.ref = pa.produit_id AND pa.user_id = ?");
             include_once("php/menu_contextuel.php");
             ?>
             <section class="main-section">
-                <form method="post">
+<!--                <form method="post">-->
                 <h1 class="whats-new">Mon panier</h1>
                 <div class="container">
                    
@@ -170,9 +125,9 @@ WHERE pr.ref = pa.produit_id AND pa.user_id = ?");
                     echo $prix_total."€ pour ".$nb_article." article(s) ajouté(s) au total.";
                     ?></h3>
                 <br>
-                <input type="submit" name="submit" id="submit" class="submit" value="Commander">
+                <input type="submit" name="submit" id="submit" class="submit" value="Commander" onclick='maj_panier()' href="commander.php">
                 <br>
-                 </form>
+<!--                 </form>-->
             </section>
 
         </div>

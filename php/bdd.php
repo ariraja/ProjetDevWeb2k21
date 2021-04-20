@@ -1,14 +1,3 @@
-<!-- contenant 
-les fonctions sécurisées (avec récupération sur erreur) suivantes :
-o Connexion : pour se connecter à la base et renvoyant vrai ou faux si erreur
-o Deconnexion : pour se déconnecter de la base
-o Une fonction par récupération de données nécessaires à votre site et 
-renvoyant un tableau des données récupérées ou NULL si la requêtes a 
-échoué.-->
-
-
-
-
 <!--
 // Déconnexion de la BDD
 unset( $exemple ); ou $dbh = null;-->

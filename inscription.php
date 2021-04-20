@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once("php/varSession.inc.php");//utile pour l'ajout d'utilisateurs après
 include_once("php/bddData.php");
 
 

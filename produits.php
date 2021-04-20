@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once("php/varSession.inc.php");
 include_once("php/bddData.php");
+include_once("php/verif_connexion.php");
 
 
 
@@ -20,7 +20,6 @@ if(isset($_GET['cat'])){//automatisation de la catégorie
     $categorie=$req->fetchAll();
 
     $produit=$_GET['cat'];
-    /*$categorie=$_SESSION['categorie']->$produit;*/
     $nom_categorie=ucfirst($produit);
 }
 

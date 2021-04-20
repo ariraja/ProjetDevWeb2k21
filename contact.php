@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("php/varSession.inc.php");
+include_once("php/verif_connexion.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

@@ -30,23 +30,14 @@ function delete_panier(numero){
     xmlhttp.send();
 }
     
+function maj_panier(){
+    var xmlhttp = new XMLHttpRequest();
+    let url="majPanier&Stock.php?ok="+true;
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send();
+    console.log(url);
+    window.location = "commander.php";// changer de page
+}
+    
     
 </script>
-
-
-<?php
-    function ajout_panier($pic,$ref,$nom,$prix,$qte){      
-        /*$article=['photo' => $pic,'ref' => $ref, 'nom' =>$nom, 'prix'=>$prix, 'qte' => $qte];
-        array_push($_SESSION['panier'],$article);*/
-    }
-
-    function supp_panier($ref){
-        foreach($_SESSION['panier'] as $art){
-            if(in_array($ref,$art)){
-              unset($_SESSION['panier'][array_search($art,$_SESSION['panier'])]);//on supprime l'article
-            }
-        }
-         sort($_SESSION['panier']);//remet indice dans l'ordre
-    }
-    //var_dump($_SESSION['panier']);
-?>
