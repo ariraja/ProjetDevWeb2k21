@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("php/bddData.php");
+include_once("bdd/bddData.php");
 include_once("php/verif_connexion.php");
 
 

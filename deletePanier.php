@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once("php/bddData.php");
+include_once("bdd/bddData.php");
 
 if(isset($_GET['ref'])){
     $ref=$_GET['ref'];

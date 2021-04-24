@@ -67,7 +67,7 @@ include_once("php/verif_connexion.php");
                     <h2>Savourez l'authenticité de nos poulets</h2>
                     <p>A découvrir mtn</p>
                     <p>à partir de 6.99€ TTC</p>
-                    <p>Poulets élevés en Farnce</p>
+                    <p>Poulets élevés en France</p>
                     <p>Commandez sur notre site et vous faire livrer</p>
                     <a href="produits.php?cat=poulet"><button type="button" class="btn-article">
                         <span>Je commande</span></button></a>

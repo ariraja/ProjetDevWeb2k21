@@ -1,5 +1,5 @@
 <?php
-include_once("php/bddData.php");
+include_once("bdd/bddData.php");
 
 if(!empty($_POST)){
     $ok=true;

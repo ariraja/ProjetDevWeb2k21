@@ -9,7 +9,7 @@ if(isset($_SESSION['user_nom']) || isset($_SESSION['user_email'])) {//sécurité
 } 
 
 include_once('php/fonctions.php');
-include_once("php/bddData.php");
+include_once("bdd/bddData.php");
 
 
 if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['prix'])&&isset($_GET['qte'])&&isset($_GET['qte_max'])){
