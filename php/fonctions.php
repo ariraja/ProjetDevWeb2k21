@@ -30,13 +30,18 @@ function delete_panier(numero){
     xmlhttp.send();
 }
     
-function maj_panier(){
+function maj_panier(vide){
     var xmlhttp = new XMLHttpRequest();
     let url="majPanier&Stock.php?ok="+true;
     xmlhttp.open("GET",url,true);
     xmlhttp.send();
     console.log(url);
-    window.location = "commander.php";// changer de page
+    if(vide==true){
+         window.location = "panier.php";
+    }
+    else{
+        window.location = "commander.php";// changer de page
+    }
 }
     
     

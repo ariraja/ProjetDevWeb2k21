@@ -79,17 +79,20 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
             include_once("php/menu_contextuel.php");
             ?>
             <section class="main-section">
-<!--                <form method="post">-->
                 <h1 class="whats-new">Mon panier</h1>
                 <div class="container">
                    
                     <table>
                         <?php 
+                        $vide=false;
                         $req1 = $BDD->prepare("SELECT * 
                     FROM produits pr, panier pa 
                     WHERE pr.ref = pa.produit_id AND pa.user_id = ?");
                         $req1->execute(array($_SESSION['user_email']));
                         $panier=$req1->fetchAll();
+                        if(empty($panier)){
+                            $vide=true;
+                        }
                         //var_dump($_SESSION['user_email']);
                         //var_dump($panier);
                         $i=1;
@@ -125,9 +128,8 @@ if(isset($_GET['pic'])&&isset($_GET['ref'])&&isset($_GET['nom'])&&isset($_GET['p
                     echo $prix_total."€ pour ".$nb_article." article(s) ajouté(s) au total.";
                     ?></h3>
                 <br>
-                <input type="submit" name="submit" id="submit" class="submit" value="Commander" onclick='maj_panier()' href="commander.php">
+                <input type="submit" name="submit" id="submit" class="submit" value="Commander" onclick='maj_panier(<?=$vide?>)'>
                 <br>
-<!--                 </form>-->
             </section>
 
         </div>
