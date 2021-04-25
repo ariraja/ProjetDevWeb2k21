@@ -42,7 +42,7 @@ include_once("php/verif_connexion.php");
                 <div class="whats-new">
                     <img src="img/WHATS%20NEW.png">
                 </div>
-                <div class="search"><input type="search" placeholder="Recherchez un produit..."/><button class="search_btn">🔍</button></div>
+<!--                <div class="search"><input type="search" placeholder="Recherchez un produit..."/><button class="search_btn">🔍</button></div>-->
                 <article class="new_pizza">
                     <h2>Nouveauté Pizza à édition limité</h2>
                     <p>La Pepperoni</p>
